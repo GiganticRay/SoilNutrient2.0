@@ -124,10 +124,8 @@ $('a[data-scroll="true"]').click(function (e) {
         }, 500);
         //Make it be absolute
         setTimeout(function () {
-            alert("absolute");
-            //document.getElementById("TuPianDiv").setAttribute("display", "none");
             $("#TuPianDiv").css("display", "none");
-        }, 1000);
+        }, 700);
     }
 
 });
