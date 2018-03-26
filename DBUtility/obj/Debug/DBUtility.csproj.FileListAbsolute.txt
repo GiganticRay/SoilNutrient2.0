@@ -32,3 +32,12 @@ C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\Soil
 C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\DBUtility\bin\Debug\System.Data.SQLite.DLL
 C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.dll
 C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.pdb
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\bin\Debug\SoilNutrientSoft.DBUtility.dll
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\bin\Debug\SoilNutrientSoft.DBUtility.pdb
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\bin\Debug\IBatisNet.Common.dll
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\bin\Debug\MySql.Data.dll
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\bin\Debug\System.Data.SQLite.DLL
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.dll
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.pdb
