@@ -213,6 +213,7 @@ a
 #FuncitonBtn
 {
      background-color: #777;
+     display:none;
 }
 .tdt-bottom.tdt-left
 {
@@ -255,6 +256,7 @@ a
 .has-success select{background-color:#DFF0D8}*/
 
 
+/*设置logo样式*/
 .imgClass{
     background-color: #A8E0B3;
     color: #FFFFFF;
@@ -271,3 +273,8 @@ a
     -moz-opacity:0.5;
     opacity: 0.7;
 }
+
+.sweet-alert button
+{
+    font-size:20px;
+    }

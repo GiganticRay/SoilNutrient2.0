@@ -18,9 +18,6 @@ var markers = null              //聚合的标记
  
 $(function () {
 
-//    $("#useDiv").click(function(){
-//        $("#sdf")[0].click();
-//    });
     //设置map的高度
     boxheight();
     //窗口或框架被调整大小时执行
@@ -101,26 +98,31 @@ $(function () {
         if(isLog==false){
            openLoginModal();
         }else{
-
-           if(confirm("确认删除嘛?")){
-            var tableid = $("#hiddenIdInMarkeWindow").val();
+            check(function(){
+                 var tableid = $("#hiddenIdInMarkeWindow").val();
             $.ajax({
                     url:"../Ashx/DeleteData.ashx",
                     type:"POST",
                     data: {Id:tableid},
                     success:function(Backdata){
                         if(Backdata == "ok"){
-                            alert("删除成功");
+                           swal({ title: "删除成功！",
+                            type: "success",
+                            timer:1500
+                              });
                             $("#ShowFarmBtn").click();
                             $("#ShowFarmBtn").click();
                             $("#ShowInfoCloseBtn").click();
                         }
                         else{
-                            alert(Backdata);
+                            swal({ title: "删除失败！",
+                            type: "error",
+                            timer:1500
+                        });
                         }
                     }
                 });
-        }
+            });
         }
     });
     //保存
@@ -129,7 +131,7 @@ $(function () {
         if(isLog==false){
            openLoginModal();
         }else{
-        if (confirm("确认保存后的信息？")) {
+        save(function(){
              //将表单整体序列化成一个数组提交到后台
             var postDataInMarkerForm = $("#dataInMarkerForm").serializeArray();
             $.ajax({
@@ -138,7 +140,10 @@ $(function () {
                     data: postDataInMarkerForm,
                     success:function(Backdata){
                         if(Backdata == "ok"){
-                            alert("保存成功");
+                             swal({ title: "保存成功！",
+                            type: "success",
+                            timer:1500
+                              });
                             //连续调用两次click相当于刷新标记
                              $("#ShowFarmBtn").click();
                             $("#ShowFarmBtn").click();
@@ -146,11 +151,14 @@ $(function () {
                              
                         }
                         else{
-                            alert(Backdata);
+                           swal({ title: "保存失败！",
+                            type: "success",
+                            timer:1500
+                              });
                         }
                     }
                 });
-         }
+        });
          }
     });
 
@@ -200,18 +208,25 @@ $(function () {
          var hiddenId = $("#hiddenIdInMarkeWindow1").val();
          if (hiddenId.length<=0) {
            //表示没有选中节点
-           alert("删除前，请先选中数据");
+           swal({ 
+                    title: "请先选中数据！",
+                     type: "error",
+                     timer:1500
+                        });
         }else{
-         if(confirm("确认删除？")){
-            //获取id
-            var tableid = $("#hiddenIdInMarkeWindow1").val();
+        //调用弹出框
+        check(function(){
+               var tableid = $("#hiddenIdInMarkeWindow1").val();
             $.ajax({
                     url:"../Ashx/DeleteData.ashx",
                     type:"POST",
                     data: {Id:tableid},
                     success:function(Backdata){
                         if(Backdata == "ok"){
-                            alert("删除成功");
+                            swal({ title: "删除成功！",
+                                type: "success",
+                                timer:1500
+                              });
                             //删除后，将重新刷新树状结构
                              getTree();
                             //连续调用两次click相当于刷新标记
@@ -224,11 +239,14 @@ $(function () {
                             RestitutionShowWind("DetailOl","DetailImgDiv","DetailImgOutDiv","DetailLI","DetailImgNearDiv","DetailDefaultImg");
                         }
                         else{
-                            alert(Backdata);
+                           swal({ title: "删除失败！",
+                            type: "error",
+                            timer:1500
+                        });
                         }
                     }
             });
-        }
+        });
         }
        }
     });
@@ -242,10 +260,14 @@ $(function () {
          var hiddenId = $("#hiddenIdInMarkeWindow1").val();
          if (hiddenId.length<=0) {
            //表示没有选中节点
-           alert("保存前，请先选中数据");
+           swal({ 
+                    title: "请先选中数据！",
+                     type: "error",
+                     timer:1500
+                        });
         }else{
-        if(confirm("确认保存后的信息？")){
-             //将表单整体序列化成一个数组提交到后台
+        save(function(){
+            //将表单整体序列化成一个数组提交到后台
             var postData = $("#dataInDetailForm").serializeArray();
             $.ajax({
                     url:"../Ashx/ProcessUpdateAllData.ashx",
@@ -253,7 +275,10 @@ $(function () {
                     data: postData,
                     success:function(Backdata){
                         if(Backdata == "ok"){
-                            alert("保存成功");
+                           swal({ title: "保存成功！",
+                            type: "success",
+                            timer:1500
+                              });
                             //保存后，将重新刷新树状结构
                                getTree();
                              //连续调用两次click相当于刷新标记
@@ -261,12 +286,15 @@ $(function () {
                             $("#ShowFarmBtn").click();
                         }
                         else{
-                            alert(Backdata);
+                             swal({ title: "保存失败！",
+                            type: "success",
+                            timer:1500
+                              });
                         }
                     }
             });
-        }
-        }
+        });
+            }
         }
     });
     //----------------------------------------------------------------农田详细管理结束
@@ -294,7 +322,11 @@ $(function () {
         var postData = $("#MultileSearchForm").serializeArray();
         $.getJSON("../Ashx/ProcessSeoSelect.ashx",postData,function(data){
             if(data.length==0){
-                alert("该地区无样本点");
+               swal({ 
+                    title: "所选地区无样本点！",
+                    type: "error",
+                    timer:1500
+                     });
             }else{
                 //横轴的名称
                 var ChartLabels = [];
@@ -687,7 +719,11 @@ function img(){
                 // 检查是否是图片  
                 //*.jpg;*.png;*.jpeg;*.gif
                 if( !fileFormat.match(/.png|.jpg|.gif|.jpeg/) ) {  
-                   alert('上传错误,文件格式必须为：.png/.jpg/.jpeg/.gif');  
+                    swal({ 
+                        title: "上传错误,文件格式必须为：.png/.jpg/.jpeg/.gif！",
+                        type: "error",
+                        timer:1500
+                     });
                    $(this).val("");
                     return false;    
                 }  
@@ -707,7 +743,6 @@ function img(){
                    var postStr =reader.result;
                    //提交数据
                      $.post("../Ashx/UploadImgs.ashx",{postData:postStr},function(data){
-//                    alert(data);
                     //向隐藏域中添加数据
                      hiddenPic=  $("#hidSavePicPath").val();
                      if(hiddenPic.length==0){
@@ -973,7 +1008,11 @@ function ConFirmSubmitClick() {
     }else{
     //先判断数据是否合法
     if (IsEnteringDataLegal == false) {
-        alert("请检查数据是否正确");
+           swal({ 
+                title: "请检查数据格式是否正确",
+                type: "error",
+                timer:1500
+                     });
         return;
     }
     else{
@@ -985,7 +1024,11 @@ function ConFirmSubmitClick() {
             //dataType:"Json",
             success:function(Backdata){
                 if(Backdata == "ok"){
-                    alert("录入成功");
+                        swal({ 
+                        title: "录入成功",
+                        type: "success",
+                        timer:1500
+                     });
                     //清空窗口数据
                     RestitutionUpLoadWind();
                     //刷新显示农田
@@ -997,7 +1040,11 @@ function ConFirmSubmitClick() {
                     $("#EnteringCloseBtn").click();
                 }
                 else{
-                    alert(Backdata);
+                    swal({
+                        title:"录入失败！",
+                         type: "error",
+                        timer:1500
+                    });
                 }
             }
         });
@@ -1311,3 +1358,53 @@ function shakeModal(data) {
     }, 400 ); 
 }
 
+
+//使用sweetalert的弹出框操作
+ function check(Func) {
+            swal(
+                { title: "您确定要删除这条数据吗",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定删除！",
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                       Func();
+                    }
+                    else {
+                        swal({ title: "已取消",
+                            type: "error",
+                            timer:1500
+                        })
+                    }
+                }
+            )
+            }
+function save(Func) {
+       swal(
+                { title: "您确定要保存吗",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonColor: "#6CE26C",
+                    confirmButtonText: "确定保存！",
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                       Func();
+                    }
+                    else {
+                        swal({ title: "已取消",
+                            type: "error",
+                            timer:1500
+                        })
+                    }
+                }
+            )
+    }

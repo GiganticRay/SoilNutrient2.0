@@ -78,17 +78,14 @@
     <Content Include="Controls\copyright.ascx" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.html" />
-    <Content Include="Resource\1830.png" />
-    <Content Include="Resource\mylogo.png" />
+    <Content Include="Resource\HomePageLogo.png" />
     <Content Include="Resource\Default.png" />
-    <Content Include="Resource\homePage4.jpeg" />
-    <Content Include="Resource\mylogo1.png" />
+    <Content Include="Resource\homePagePic.jpeg" />
     <Content Include="Resource\photo.jpeg" />
     <Content Include="obj\Debug\SoilNutrientSoft.Web.dll" />
     <Content Include="obj\Debug\SoilNutrientSoft.Web.pdb" />
     <Content Include="obj\Debug\Web.csproj.FileListAbsolute.txt" />
     <Content Include="Resource\logo.png" />
-    <Content Include="Resource\TestBackG1.jpg" />
     <Content Include="Script\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
     <Content Include="Script\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
     <Content Include="Script\bootstrap-3.3.7-dist\css\bootstrap.css" />
@@ -307,6 +304,7 @@
     <Content Include="Script\rubick_pres.css" />
     <Content Include="Script\style.css" />
     <Content Include="test\1.htm" />
+    <Content Include="test\sweetalert.html" />
     <Content Include="test\test.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
