@@ -1696,7 +1696,7 @@
                                     <div class="error">
                                     </div>
                                     <div class="form loginBox">
-                                        <form method="post" action="Ashx/VerifyIogin.ashx" accept-charset="UTF-8" id="loginForm">
+                                        <form method="post" accept-charset="UTF-8" id="loginForm">
                                         <input id="email" class="form-control" type="text" placeholder="用户名" name="userName">
                                         <input id="password" class="form-control" type="password" placeholder="密码" name="password">
                                         <input class="btn btn-default btn-login" type="button" value="登录" onclick="loginAjax()">
@@ -1707,13 +1707,14 @@
                             <div class="box">
                                 <div class="content registerBox" style="display: none;">
                                     <div class="form">
-                                        <form method="post" html="{:multipart=>true}" data-remote="true" action="Ashx/registerCount.ashx"
-                                        accept-charset="UTF-8">
+                                        <form method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8" id="RegistForm">
                                         <input id="email_register" class="form-control" type="text" placeholder="用户名" name="userName">
                                         <input id="password_register" class="form-control" type="password" placeholder="密码"
                                             name="password">
                                         <input id="password_confirmation" class="form-control" type="password" placeholder="再输入一次"
                                             name="password_confirmation">
+                                        <input id="Guid_Code" class="form-control" type="text" placeholder="请输入邀请码"
+                                            name="Guid_Code">
                                         <input class="btn btn-default btn-register" type="button" value="注册" name="commit"
                                             onclick="registerAjax()">
                                         </form>

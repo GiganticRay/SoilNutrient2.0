@@ -1297,8 +1297,19 @@ function loginAjax() {
 }
 
 function registerAjax(){
-    alert('目暂时不支持注册功能');
-    showLoginForm();
+    //action="Ashx/registerCount.ashx"
+    //alert('目暂时不支持注册功能');
+
+    //将表单整体序列化成一个数组提交到后台
+    var postData = $("#RegistForm").serializeArray();
+    $.post( "../Ashx/registerCount.ashx",postData, function( data ) {
+            if(data == "ok"){
+                alert("注册成功!");
+                showLoginForm();
+            } else {
+                 shakeModal(data); 
+            }
+        });
 }
 
 //窗口震动

@@ -129,6 +129,7 @@
     <Compile Include="FarmlandMSug.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="SoilNutrientMeg.cs" />
+    <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
