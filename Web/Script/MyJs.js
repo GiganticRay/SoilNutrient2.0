@@ -373,6 +373,11 @@ $(function () {
     img();
     //功能按钮事件
     FunctionBtn();
+
+    //Logo的点击事件
+    $("#LogoImg").click(function(){
+        location.reload() ;
+    });
 });
 
  //功能按钮事件

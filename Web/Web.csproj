@@ -81,6 +81,7 @@
     <Content Include="Resource\mylogo.png" />
     <Content Include="Resource\Default.png" />
     <Content Include="Resource\homePage4.jpeg" />
+    <Content Include="Resource\mylogo1.png" />
     <Content Include="Resource\photo.jpeg" />
     <Content Include="obj\Debug\SoilNutrientSoft.Web.dll" />
     <Content Include="obj\Debug\SoilNutrientSoft.Web.pdb" />
