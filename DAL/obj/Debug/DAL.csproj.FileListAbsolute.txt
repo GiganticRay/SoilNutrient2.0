@@ -91,9 +91,9 @@ D:\Stock\SoilNutrient2.0\DAL\bin\Debug\SoilNutrientSoft.DAL.pdb
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\SoilNutrientSoft.Common.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\SoilNutrientSoft.DBUtility.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\SoilNutrientSoft.Model.dll
+D:\Stock\SoilNutrient2.0\DAL\bin\Debug\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\Excel.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\COM.Excel.dll
-D:\Stock\SoilNutrient2.0\DAL\bin\Debug\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\IBatisNet.DataMapper.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\IBatisNet.Common.dll
 D:\Stock\SoilNutrient2.0\DAL\bin\Debug\System.Data.SQLite.dll

@@ -103,14 +103,14 @@ D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.BLL.pdb
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.Common.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.DAL.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.Model.dll
+D:\Stock\SoilNutrient2.0\BLL\bin\Debug\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\Excel.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\COM.Excel.dll
-D:\Stock\SoilNutrient2.0\BLL\bin\Debug\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.DBUtility.dll
-D:\Stock\SoilNutrient2.0\BLL\bin\Debug\MySql.Data.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\IBatisNet.DataMapper.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\IBatisNet.Common.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\System.Data.SQLite.dll
+D:\Stock\SoilNutrient2.0\BLL\bin\Debug\MySql.Data.dll
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.Common.pdb
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.DAL.pdb
 D:\Stock\SoilNutrient2.0\BLL\bin\Debug\SoilNutrientSoft.Model.pdb

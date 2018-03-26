@@ -47,6 +47,5 @@ D:\Stock\SoilNutrient2.0\DBUtility\bin\Debug\IBatisNet.Common.dll
 D:\Stock\SoilNutrient2.0\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
 D:\Stock\SoilNutrient2.0\DBUtility\bin\Debug\MySql.Data.dll
 D:\Stock\SoilNutrient2.0\DBUtility\bin\Debug\System.Data.SQLite.DLL
-D:\Stock\SoilNutrient2.0\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
 D:\Stock\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.dll
 D:\Stock\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.pdb

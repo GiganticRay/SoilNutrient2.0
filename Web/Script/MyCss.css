@@ -206,7 +206,7 @@ a
 .navbar-fixed-top, .navbar-fixed-bottom {
     position: fixed;
     right: 98%;
-    left: 0%;
+    left: 3%;
     z-index: 500;
 }
 
@@ -253,3 +253,21 @@ a
 .has-success input,
 .has-success textarea,
 .has-success select{background-color:#DFF0D8}*/
+
+
+.imgClass{
+    background-color: #A8E0B3;
+    color: #FFFFFF;
+    border-radius: 100px;
+    border-width: 2px;
+    font-size: 20px;
+    font-style: oblique;
+    font-family:Consolas;
+    font-weight:bold;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    filter:alpha(Opacity=80);
+    -moz-opacity:0.5;
+    opacity: 0.7;
+}

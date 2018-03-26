@@ -371,7 +371,7 @@ $(function () {
 
     //上传图片按钮的改变事件
     img();
-    //功能按钮事件
+    //录入框的功能按钮事件
     FunctionBtn();
 
     //Logo的点击事件
@@ -380,7 +380,7 @@ $(function () {
     });
 });
 
- //功能按钮事件
+ //录入框的功能按钮事件
 function FunctionBtn(){
      var trigger = $('.hamburger'),
 		      overlay = $('.overlay'),
@@ -414,6 +414,7 @@ function FunctionBtn(){
           });
 }
 
+//录入界面div的点击事件
 function Divclick(thisDiv){
      $(thisDiv).find('a')[0].click();
 }
@@ -764,6 +765,7 @@ function AddPicture(ImgDivselector,OlSelect, PicPath,ImgOutDivSelect,imgNearDivI
 //-----------------------------------------------------------------------------------------------------------------农田详细管理开始
     //获取树状结构
   
+  //获取树状结构数据
 function getTree() {
         //Some logic to retrieve, or generate tree structure
         $.ajax({
@@ -1080,11 +1082,15 @@ function ChangeEvent(tagObject){
 }
 //-----------------------------------------------------------------------------------------------------------------录入农田信息结束
 
-
-
 //对地图的处理
 //添加放大缩小按钮，比例尺按钮
 function addControl() {
+
+
+     //添加比例尺
+    var control2 = new T.Control.Scale();
+    control2.setPosition(T_ANCHOR_BOTTOM_RIGHT);
+    map.addControl(control2);
 
     //添加鹰眼
      var miniMap = new T.Control.OverviewMap({
@@ -1093,10 +1099,7 @@ function addControl() {
             });
     map.addControl(miniMap);
 
-      //添加比例尺
-    var control2 = new T.Control.Scale();
-    control2.setPosition(T_ANCHOR_BOTTOM_RIGHT);
-    map.addControl(control2);
+ 
 
 
      //添加放大缩小按钮
@@ -1232,9 +1235,6 @@ function UpLoadSelect2County(){
         }
     });
 }
-
-
-
 
 //****************************************************登录
 function showRegisterForm(){

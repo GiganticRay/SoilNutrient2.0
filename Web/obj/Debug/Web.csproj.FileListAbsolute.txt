@@ -264,14 +264,14 @@ D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.BLL.dll
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.Common.dll
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.Model.dll
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.DAL.dll
+D:\Stock\SoilNutrient2.0\Web\bin\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\Web\bin\Excel.dll
 D:\Stock\SoilNutrient2.0\Web\bin\COM.Excel.dll
-D:\Stock\SoilNutrient2.0\Web\bin\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.DBUtility.dll
-D:\Stock\SoilNutrient2.0\Web\bin\MySql.Data.dll
 D:\Stock\SoilNutrient2.0\Web\bin\IBatisNet.DataMapper.dll
 D:\Stock\SoilNutrient2.0\Web\bin\IBatisNet.Common.dll
 D:\Stock\SoilNutrient2.0\Web\bin\System.Data.SQLite.dll
+D:\Stock\SoilNutrient2.0\Web\bin\MySql.Data.dll
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.BLL.pdb
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.Common.pdb
 D:\Stock\SoilNutrient2.0\Web\bin\SoilNutrientSoft.Model.pdb

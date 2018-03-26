@@ -47,6 +47,5 @@ D:\Stock\SoilNutrient2.0\Common\bin\Debug\COM.Excel.dll
 D:\Stock\SoilNutrient2.0\Common\bin\Debug\Excel.dll
 D:\Stock\SoilNutrient2.0\Common\bin\Debug\OpenSmtp.dll
 D:\Stock\SoilNutrient2.0\Common\bin\Debug\OWC10Chart.dll
-D:\Stock\SoilNutrient2.0\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 D:\Stock\SoilNutrient2.0\Common\obj\Debug\SoilNutrientSoft.Common.dll
 D:\Stock\SoilNutrient2.0\Common\obj\Debug\SoilNutrientSoft.Common.pdb
