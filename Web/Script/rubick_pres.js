@@ -112,18 +112,24 @@ $(window).resize(function(){
     }
 });
 
-$('a[data-scroll="true"]').click(function(e){         
+$('a[data-scroll="true"]').click(function (e) {
     var scroll_target = $(this).data('id');
     var scroll_trigger = $(this).data('scroll');
-    
-    if(scroll_trigger == true && scroll_target !== undefined){
+
+    if (scroll_trigger == true && scroll_target !== undefined) {
         e.preventDefault();
-        
+
         $('html, body').animate({
-             scrollTop: $(scroll_target).offset().top - 50
+            scrollTop: $(scroll_target).offset().top - 50
+        }, 500);
+        //使得页面成为绝对定位
+        setTimeout(function () {
+            alert("absolute");
+            //document.getElementById("TuPianDiv").setAttribute("display", "none");
+            $("#TuPianDiv").css("display", "none");
         }, 1000);
     }
-                
+
 });
 
     
