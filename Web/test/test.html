@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Bootstrap 实例 - 弹出框（Popover）插件</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //简单调用
+            $("#my").popover({
+                placement: "top",    //定位方向
+                title: "懒人建站-jquery插件",  //如果不需要标题就不要配置这个选项
+                content: "内容：懒人建站"
+            });
+            $('#my').popover('show');
+
+//            //事件其实就是一些回调一样的东西，比如隐藏事件hidden，在提示层完全隐藏的时候会触发里面的处理逻辑
+//            $("#my").on('hidden.bs.popover', function () {
+//                // 执行一些动作...
+//                //这里面的this就是点击的按钮自身
+//                alert(0);
+//                $("#my").popover({
+//                    placement: "top",    //定位方向
+//                    title: "懒人建站-jquery插件",  //如果不需要标题就不要配置这个选项
+//                    content: "内容：懒人建站"
+//                });
+            //            })
+
+            $("[data-toggle='popover']").popover();
+       });
+
+    </script>
+</head>
+
+<body>
+
+<!--    <input type="text" data-toggle="popover" value=" " id="my" />-->
+  <button id="my" type="button" class="btn btn-warning" title="Popover title"  
+			data-container="body" data-toggle="popover" data-placement="right" 
+			data-content="右侧的 Popover 中的一些内容">
+		右侧的 Popover
+	</button>
+<!--<div class="container" style="padding: 100px 50px 10px;" >
+
+
+	<button type="button" class="btn btn-warning" title="Popover title"  
+			data-container="body" data-toggle="popover" data-placement="right" 
+			data-content="右侧的 Popover 中的一些内容">
+		右侧的 Popover
+	</button>
+	<input type="text" class="btn btn-default" 
+			data-container="body" data-toggle="popover" data-placement="right" 
+			data-content="右侧的 Popover 中的一些内容" />
+	<input type="text" class="btn btn-default" title="Popover title"  
+	data-container="body" data-toggle="popover" data-placement="right" 
+	data-content="右侧的 Popover 中的一些内容" />
+	
+	<a href="#" data-toggle="popover" title="Example popover">
+    请悬停在我的上面
+</a>
+</div>
+
+
+<div class="container" style="padding: 100px 50px 10px;" >
+	<button type="button" class="btn btn-default popover-show" 
+			title="Popover title" data-container="body" 
+			data-toggle="popover" data-placement="left" 
+			data-content="左侧的 Popover 中的一些内容 —— show 方法">
+		左侧的 Popover
+	</button>
+	<button type="button" class="btn btn-primary popover-hide" 
+			title="Popover title" data-container="body" 
+			data-toggle="popover" data-placement="top" 
+			data-content="顶部的 Popover 中的一些内容 —— hide 方法">
+		顶部的 Popover
+	</button>
+	<button type="button" class="btn btn-success popover-destroy" 
+			title="Popover title" data-container="body" 
+			data-toggle="popover" data-placement="bottom" 
+			data-content="底部的 Popover 中的一些内容 —— destroy 方法">
+		底部的 Popover
+	</button>
+	<button type="button" class="btn btn-warning popover-toggle" 
+			title="Popover title" data-container="body" 
+			data-toggle="popover" data-placement="right" 
+			data-content="右侧的 Popover 中的一些内容 —— toggle 方法">
+		右侧的 Popover
+	</button><br><br><br><br><br><br>
+	<p class="popover-options">
+		<a href="#" type="button" class="btn btn-warning" title="<h2>Title</h2>"  
+		   data-container="body" data-toggle="popover" data-content="<h4>Popover 中的一些内容 —— options 方法</h4>">
+			Popover
+		</a>
+	</p>
+	<script>
+		$(function () { $('.popover-show').popover('show');});
+		$(function () { $('.popover-hide').popover('hide');});
+		$(function () { $('.popover-destroy').popover('destroy');});
+		$(function () { $('.popover-toggle').popover('toggle');});
+		$(function () { $(".popover-options a").popover({html : true });});
+	</script>
+</div>
+
+<script>
+$(function () { 
+	$("[data-toggle='popover']").popover();
+});
+</script>
+
+	<button type="button" class="btn btn-default popover-show" 
+			title="Popover title" data-container="body" 
+			data-toggle="popover" data-placement="left" 
+			data-content="左侧的 Popover 中的一些内容 —— show 方法">
+		左侧的 Popover
+	</button>
+    <input type="text" name="name" value=" " class="popover-toggle" id="thisInput"/>
+    <script>
+        $(function () { $('#thisInput').popover({ "data-html": "niha" }); });
+       
+	</script>-->
+
+
+    
+</body>
+</html>

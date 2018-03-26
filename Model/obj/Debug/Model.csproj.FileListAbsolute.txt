@@ -1,0 +1,17 @@
+D:\Experience_Lab\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+D:\Experience_Lab\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+D:\Experience_Lab\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+D:\Experience_Lab\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+D:\Experience_Lab\SoilNutrient2.0\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+D:\Experience_Lab\SoilNutrient2.0_03241852\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+D:\Experience_Lab\SoilNutrient2.0_03241852\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+D:\Experience_Lab\SoilNutrient2.0_03241852\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+D:\Experience_Lab\SoilNutrient2.0_03241852\SoilNutrient2.0_03231307\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+C:\Users\红BUF\Desktop\四川养分项目\资源\SoilNutrient2.0_030242132\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb

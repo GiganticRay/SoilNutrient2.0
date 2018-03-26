@@ -1,0 +1,1772 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="Resource/logo.png">
+    <title>Sichuan Province FarmInfo Management System</title>
+</head>
+<body class="no-touch">
+    <nav class="navbar navbar-burger navbar-fixed-top navbar-transparent" role="navigation">
+                <div class="navbar-header">
+                    <a target="_blank" class="navbar-brand">
+                    <img src="Resource/mylogo.png" />
+                    </a>
+                </div>
+        </nav>
+    <div class="wrapper">
+        <div class="section section-header">
+            <div class="parallax ">
+                <img src="Resource/homePage4.jpeg" width="100%" height="100%" style="transform: translate3d(0px, 0px, 0px);"
+                    alt="" />
+                <div class="container">
+                    <div class="content">
+                        <h1>
+                            SCFIMS</h1>
+                        <div class="separator-container">
+                            <div class="separator line-separator">
+                                ∎</div>
+                        </div>
+                        <h5>
+                            Create By Mr Liu、Long、Ray</h5>
+                    </div>
+                </div>
+            </div>
+            <a href="#Anchor4" data-scroll="true" data-id="#Anchor4" class="scroll-arrow hidden-xs hidden-sm">
+                <i class="fa fa-angle-down"></i></a>
+        </div>
+        <!-- 录入农田信息模态框（Modal） -->
+        <div class="modal fade" id="EnterFarmInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-lg ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            农田信息录入
+                        </h4>
+                    </div>
+                    <form id="EnteringFarmInfoForm">
+                    <div class="modal-body">
+                        <div class="panel-group" id="accordion">
+                            <!-- 农田信息表格-->
+                            <div class="panel panel-default" > 
+                                <div class="panel-heading" onclick="Divclick(this)">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" id="sdf" data-parent="#accordion" href="#collapseOne">农田信息 </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table table-condensed table-striped table-bordered">
+                                            <tr>
+                                                <td>
+                                                    <select class="EnteringText cityClass mySelect" id="EnteringcitySelect" name="city">
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="EnteringText countryClass mySelect" id="EnteringCountrySelect" name="country">
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    乡/镇:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="townName" value="" class="EnteringText" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    村:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="villageName" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                    采样点名称:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="SampleName" value="" class="EnteringText" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    经度:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="LongitudeDegree"  data-toggle="popover" value="" class="EnteringText " 
+                                                        onblur="IsDataLegal(this)"" /><strong>°</strong>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="LongitudeMinute" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" /><strong>'</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="LongitudeSecond" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" /><strong>"</strong>
+                                                </td>
+                                                <td>
+                                                    纬度:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="LatitudeDegree" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" /><strong>°</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="LatitudeMinute" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" /><strong>'</strong>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="LatitudeSecond" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" /><strong>"</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    户主姓名：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="NameOfHouseholder" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                    联系电话:
+                                                </td>
+                                                <td>
+                                                    <input id="PhoneNumberText" type="text" name="PhoneNumber" value="" class="EnteringText"
+                                                         onblur="IsPhoneNumLegal(this)" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    灌溉条件:
+                                                </td>
+                                                <td>
+                                                    <select name="IrrigationConditions" class="EnteringText mySelect">
+                                                        <option value="1">保灌</option>
+                                                        <option value="2">季节性灌溉</option>
+                                                        <option value="3">旱地</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    土块面积:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Acreage" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />亩
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    土块肥力:
+                                                </td>
+                                                <td>
+                                                    <select name="Fertility" class="EnteringText mySelect">
+                                                        <option value="1">上</option>
+                                                        <option value="2">中</option>
+                                                        <option value="3">下</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    杂草情况:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Weeds" value="" class="EnteringText" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--土壤养分信息-->
+                            <div class="panel panel-success" >
+                                <div class="panel-heading" onclick="Divclick(this)">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">土壤养分信息 </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table table-condensed table-striped table-bordered">
+                                            <tr>
+                                                <td>
+                                                    全氮：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="N_SoilNutrient" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                                <td>
+                                                    全磷：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="P_SoilNutrient" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    全钾：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="K_SoilNutrient" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                                <td>
+                                                    水解性氮：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="HydrolyticN_SoilNutrient" value="" class="EnteringText"
+                                                         onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    速效氮：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="QuickP_SoilNutrient" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                                <td>
+                                                    速效钾：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="QuickK_SoilNutrient" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    有机质：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="OrganicMatter_SoilNutrient" value="" class="EnteringText"
+                                                         onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    mg/kg
+                                                </td>
+                                                <td>
+                                                    PH：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="PH_SoilNutrient" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--作物信息-->
+                            <div class="panel panel-info" >
+                                <div class="panel-heading" onclick="Divclick(this)">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">作物信息 </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table table-condensed table-striped table-bordered">
+                                            <tr>
+                                                <td>
+                                                    作物类型：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="CropType_CropInfo" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    品种：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Varieties_CropInfo" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    产量：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Yield_CropInfo" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    <font size="2" color="blue">施肥量：</font>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    尿素：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="urea_CropInfo" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    二铵：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="An_CropInfo" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    钾肥：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="K_CropInfo" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    有机肥：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Organic_manure_CropInfo" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    其他：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Others_CropInfo" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    灌溉次数：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Irrigation_times_CropInfo" value="" class="EnteringText"
+                                                         onblur="IsIrrigationTimesLeagal(this)" />
+                                                </td>
+                                                <td>
+                                                    次
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--农田管理建议-->
+                            <div class="panel panel-warning" >
+                                <div class="panel-heading" onclick="Divclick(this)">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">农田管理建议 </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table table-condensed table-striped table-bordered">
+                                            <!--CropType, Varieties, TargetYield, urea, An, K, OrganicManure, Others, IrrigationTimes, SowingAmount, SowingMethod, WeedControl, PestControl, FieldManagement, Remarks-->
+                                            <tr>
+                                                <td>
+                                                    作物类型：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="CropType_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    品种：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Varieties_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    目标产量：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="TargetYield_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    <font size="2" color="blue">施肥量：</font>
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    尿素：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="urea_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    二铵：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="An_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    钾肥：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="K_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    有机肥：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Organic_manure_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    其他：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Others_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    灌溉次数：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Irrigation_times_ManaSug" value="" class="EnteringText"
+                                                         onblur="IsIrrigationTimesLeagal(this)" />
+                                                </td>
+                                                <td>
+                                                    次
+                                                </td>
+                                            </tr>
+                                            <!--SowingAmount, SowingMethod, WeedControl, PestControl, FieldManagement, Remarks-->
+                                            <tr>
+                                                <td>
+                                                    播种量：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="SowingAmount_ManaSug" value="" class="EnteringText" 
+                                                        onblur="IsDataLegal(this)" />
+                                                </td>
+                                                <td>
+                                                    kg/亩
+                                                </td>
+                                                <td>
+                                                    播种方式：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="SowingMethod_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    杂草控制：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="WeedControl_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    病虫害控制：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="PestControl_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    田间管理：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="FieldManagement_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    备注：
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Remarks_ManaSug" value="" class="EnteringText" />
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--上传图片-->
+                            <div class="panel panel-danger" >
+                                <div class="panel-heading" onclick="Divclick(this)">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse"  data-parent="#accordion" href="#collapseFive">上传图片 </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <!--multiple="multiple"-->
+                                        <input type="file" id="chooseImage" accept="image/*" />
+                                        <!--隐藏域，用于保存图片的路径-->
+                                        <input type="hidden" id="hidSavePicPath" name="picPath" value="" />
+                                        <!-- 保存用户自定义的背景图片 -->
+                                        <br />
+                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                            <ol class="carousel-indicators" id="aimOl">
+                                                <li id="defaultLi" data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                                </li>
+                                            </ol>
+                                            <div class="carousel-inner" role="listbox" id="aimDiv">
+                                                <div id="defaultImg" class="item active">
+                                                    <img id="DivImg" class="d-block w-100 img-responsive" src="Resource/Default.png"
+                                                        alt="First slide" name="defaultImg" />
+                                                </div>
+                                            </div>
+                                            <a class="left carousel-control" href="#carouselExampleIndicators" role="button"
+                                                data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
+                                                </span><span class="sr-only">Previous</span> </a><a class="right carousel-control"
+                                                    href="#carouselExampleIndicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"
+                                                        aria-hidden="true"></span><span class="sr-only">Next</span> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning glyphicon glyphicon-repeat" id="EnteringResetBtn">
+                            重置
+                        </button>
+                        <button type="button" class="btn btn-success glyphicon glyphicon-leaf" id="EnteringConFirmSubmitBtn">
+                            录入
+                        </button>
+                        <button type="button" class="btn btn-primary glyphicon glyphicon-off" data-dismiss="modal" id="EnteringCloseBtn">
+                            关闭
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
+        <!--显示农田信息的modal-->
+        <div class="modal fade" id="FarmInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="panel panel-info">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="H1">
+                                农田详细信息
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="active"><a href="#FarmInfoDiv" data-toggle="tab">农田信息</a></li>
+                                <li><a href="#SoilNutrientInfoDiv" data-toggle="tab">土壤养分信息</a></li>
+                                <li><a href="#CropDataDiv" data-toggle="tab">作物数据</a></li>
+                                <li><a href="#FarmSugDiv" data-toggle="tab">农田建议</a></li>
+                                <li><a href="#PicDiv" data-toggle="tab">图片</a></li>
+                            </ul>
+                            <form id="dataInMarkerForm">
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade in active" style="height: 400px" id="FarmInfoDiv">
+                                    <!--农田信息-->
+                                    <input id="hiddenIdInMarkeWindow" type="hidden" name="hiddenID" value="" />
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                <select class="EnteringText cityClass mySelect" id="select1" name="city">
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="EnteringText countryClass mySelect" id="select2" name="country">
+                                                </select>
+                                            </td>
+                                            <td>
+                                                乡/镇:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="townName" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                村:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="villageName" value="" class="EnteringText" />
+                                            </td>
+                                            <td>
+                                                采样点名称:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="SampleName" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                经度:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="LongitudeDegree" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" /><strong>°</strong>
+                                            </td>
+                                            <td>
+                                                纬度:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="LatitudeDegree" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" /><strong>°</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                户主姓名：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="NameOfHouseholder" value="" class="EnteringText" />
+                                            </td>
+                                            <td>
+                                                联系电话:
+                                            </td>
+                                            <td>
+                                                <input id="Text1" type="text" name="PhoneNumber" value="" class="EnteringText" 
+                                                    onblur="IsPhoneNumLegal(this)" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                灌溉条件:
+                                            </td>
+                                            <td>
+                                                <select name="IrrigationConditions" class="EnteringText mySelect">
+                                                    <option value="1">保灌</option>
+                                                    <option value="2">季节性灌溉</option>
+                                                    <option value="3">旱地</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                土块面积:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Acreage" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />亩
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                土块肥力:
+                                            </td>
+                                            <td>
+                                                <select name="Fertility" class="EnteringText mySelect">
+                                                    <option value="1">上</option>
+                                                    <option value="2">中</option>
+                                                    <option value="3">下</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                杂草情况:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Weeds" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" style="height: 400px" id="SoilNutrientInfoDiv">
+                                    <!--土壤养分信息-->
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                全氮：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="N_SoilNutrient" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                            <td>
+                                                全磷：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="P_SoilNutrient" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                全钾：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="K_SoilNutrient" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                            <td>
+                                                水解性氮：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="HydrolyticN_SoilNutrient" value="" class="EnteringText"
+                                                     onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                速效磷：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="QuickP_SoilNutrient" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                            <td>
+                                                速效钾：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="QuickK_SoilNutrient" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                有机质：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="OrganicMatter_SoilNutrient" value="" class="EnteringText"
+                                                     onblur="IsDataLegal(this)" />mg/kg
+                                            </td>
+                                            <td>
+                                                PH：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="PH_SoilNutrient" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" style="height: 400px" id="CropDataDiv">
+                                    <!--作物数据-->
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                作物类型：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="CropType_CropInfo" value="" class="EnteringText" />
+                                            </td>
+                                            <td>
+                                                品种：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Varieties_CropInfo" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                产量：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Yield_CropInfo" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                <font size="2" color="blue">施肥量：</font>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                尿素：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="urea_CropInfo" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                二铵：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="An_CropInfo" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                钾肥：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="K_CropInfo" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                有机肥：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Organic_manure_CropInfo" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                其他：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Others_CropInfo" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                灌溉次数：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Irrigation_times_CropInfo" value="" class="EnteringText"
+                                                     onblur="IsIrrigationTimesLeagal(this)" />次
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" style="height: 400px" id="FarmSugDiv">
+                                    <!--农田建议-->
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                作物类型：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="CropType_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                            <td>
+                                                品种：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Varieties_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                目标产量：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="TargetYield_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                <font size="2" color="blue">施肥量：</font>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                尿素：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="urea_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                二铵：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="An_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                钾肥：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="K_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                有机肥：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Organic_manure_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                其他：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Others_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                灌溉次数：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Irrigation_times_ManaSug" value="" class="EnteringText"
+                                                     onblur="IsIrrigationTimesLeagal(this)" />次
+                                            </td>
+                                        </tr>
+                                        <!--SowingAmount, SowingMethod, WeedControl, PestControl, FieldManagement, Remarks-->
+                                        <tr>
+                                            <td>
+                                                播种量：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="SowingAmount_ManaSug" value="" class="EnteringText" 
+                                                    onblur="IsDataLegal(this)" />kg/亩
+                                            </td>
+                                            <td>
+                                                播种方式：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="SowingMethod_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                杂草控制：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="WeedControl_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                            <td>
+                                                病虫害控制：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="PestControl_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                田间管理：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="FieldManagement_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                            <td>
+                                                备注：
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Remarks_ManaSug" value="" class="EnteringText" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--显示图片-->
+                                <div class="tab-pane fade" style="height: 400px" id="PicDiv">
+                                    <div id="MarkerImgOutDiv" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators" id="MarkerOL">
+                                            <li id="MarkerLi" data-target="#MarkerImgOutDiv" data-slide-to="0" class="active">
+                                            </li>
+                                        </ol>
+                                        <!--class="carousel-inner" 换成 class="carousel-inner" role="listbox"-->
+                                        <div class="carousel-inner" role="listbox" id="MarkerImgDiv">
+                                            <!-- class="carousel-item active" 换成   class="item active"-->
+                                            <div id="MarkerImgNearDiv" class="item active">
+                                                <img id="MarkerDefaultImg" class="d-block w-100" width="600px" height="200px" src="Resource/Default.png"
+                                                    alt="First slide" name="defaultImg" />
+                                            </div>
+                                        </div>
+                                        <!-- carousel-control-prev 换成  left carousel-control-->
+                                        <a class="left carousel-control" href="#MarkerImgOutDiv" role="button" data-slide="prev">
+                                            <!--carousel-control-prev-icon 换成  glyphicon glyphicon-chevron-left-->
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">
+                                                Previous</span> </a>
+                                        <!--carousel-control-next 换成 right carousel-control-->
+                                        <a class="right carousel-control" href="#MarkerImgOutDiv" role="button" data-slide="next">
+                                            <!--carousel-control-next-icon 换成 glyphicon glyphicon-chevron-right-->
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">
+                                                Next</span> </a>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success glyphicon glyphicon-ok-circle" id="ShowInfoConFirmSubmitBtn">
+                                保存
+                            </button>
+                            <button type="button" class="btn btn-danger glyphicon glyphicon-remove-circle" id="ShowInfoDeleteBtn">
+                                删除
+                            </button>
+                            <button type="button" class="btn btn-primary glyphicon glyphicon-off" data-dismiss="modal" id="ShowInfoCloseBtn">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+        </div>
+        <!--农田详细信息预览的modal-->
+        <div class="modal fade" id="divShowInfor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="panel panel-info">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" style="font-size: 30px;" id="H3">
+                                农田管理
+                            </h4>
+                        </div>
+                        <div class="modal-body" id="modalBody">
+                            <div id="FarmDetailManaDiv">
+                                <!--LeftInfo-->
+                                <div id="treeUlDiv" style="width: 30%; float: left; overflow: scroll; height: 650px;">
+                                </div>
+                                <!-- 农田详细信息管理-->
+                                <!-- RightInfo -->
+                                <div style="width: 70%; float: right;">
+                                    <ul id="Ul1" class="nav nav-tabs">
+                                        <li class="active panel-default"><a href="#FarmDetailInfoDiv" data-toggle="tab">农田信息</a></li>
+                                        <li><a href="#SoilNutrientMegDivofDetail" data-toggle="tab">土壤养分信息</a></li>
+                                        <li><a href="#CropsMegDivofDetail" data-toggle="tab">作物数据</a></li>
+                                        <li><a href="#FarmlandMSugDivofDetail" data-toggle="tab">农田建议</a></li>
+                                        <li><a href="#PicDiv1" data-toggle="tab">图片</a></li>
+                                    </ul>
+                                    <form id="dataInDetailForm">
+                                    <div id="myTabContent1" class="tab-content">
+                                        <div class="tab-pane fade in active" style="height: 400px" id="FarmDetailInfoDiv">
+                                            <!--农田信息-->
+                                            <input id="hiddenIdInMarkeWindow1" type="hidden" name="hiddenID" value="" />
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <td>
+                                                        <select class="EnteringText cityClass mySelect" id="FarmDetailManaProSelect" name="city">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select class="EnteringText countryClass mySelect" id="FarmDetailManaCountySelect" name="country">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        乡/镇:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="townName" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        村:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="villageName" value="" class="EnteringText" />
+                                                    </td>
+                                                    <td>
+                                                        采样点名称:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="SampleName" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        经度:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="LongitudeDegree" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" /><strong>°</strong>
+                                                    </td>
+                                                    <td>
+                                                        纬度:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="LatitudeDegree" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" /><strong>°</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        户主姓名：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="NameOfHouseholder" value="" class="EnteringText" />
+                                                    </td>
+                                                    <td>
+                                                        联系电话:
+                                                    </td>
+                                                    <td>
+                                                        <input id="Text2" type="text" name="PhoneNumber" value="" class="EnteringText" 
+                                                            onblur="IsPhoneNumLegal(this)" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        灌溉条件:
+                                                    </td>
+                                                    <td>
+                                                        <select name="IrrigationConditions" class="EnteringText mySelect">
+                                                            <option value="1">保灌</option>
+                                                            <option value="2">季节性灌溉</option>
+                                                            <option value="3">旱地</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        土块面积:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Acreage" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />亩
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        土块肥力:
+                                                    </td>
+                                                    <td>
+                                                        <select name="Fertility" class="EnteringText mySelect">
+                                                            <option value="1">上</option>
+                                                            <option value="2">中</option>
+                                                            <option value="3">下</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        杂草情况:
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Weeds" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane fade" style="height: 400px" id="SoilNutrientMegDivofDetail">
+                                            <!--土壤养分信息-->
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <td>
+                                                        全氮：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="N_SoilNutrient" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                    <td>
+                                                        全磷：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="P_SoilNutrient" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        全钾：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="K_SoilNutrient" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                    <td>
+                                                        水解性氮：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="HydrolyticN_SoilNutrient" value="" class="EnteringText"
+                                                             onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        速效磷：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="QuickP_SoilNutrient" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                    <td>
+                                                        速效钾：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="QuickK_SoilNutrient" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        有机质：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="OrganicMatter_SoilNutrient" value="" class="EnteringText"
+                                                             onblur="IsDataLegal(this)" />mg/kg
+                                                    </td>
+                                                    <td>
+                                                        PH：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="PH_SoilNutrient" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane fade" style="height: 400px" id="CropsMegDivofDetail">
+                                            <!--作物数据-->
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <td>
+                                                        作物类型：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="CropType_CropInfo" value="" class="EnteringText" />
+                                                    </td>
+                                                    <td>
+                                                        品种：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Varieties_CropInfo" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        产量：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Yield_CropInfo" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        <font size="2" color="blue">施肥量：</font>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        尿素：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="urea_CropInfo" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        二铵：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="An_CropInfo" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        钾肥：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="K_CropInfo" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        有机肥：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Organic_manure_CropInfo" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        其他：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Others_CropInfo" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        灌溉次数：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Irrigation_times_CropInfo" value="" class="EnteringText"
+                                                             onblur="IsIrrigationTimesLeagal(this)" />次
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane fade" style="height: 400px" id="FarmlandMSugDivofDetail">
+                                            <!--农田建议-->
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <td>
+                                                        作物类型：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="CropType_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                    <td>
+                                                        品种：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Varieties_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        目标产量：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="TargetYield_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        <font size="2" color="blue">施肥量：</font>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        尿素：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="urea_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        二铵：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="An_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        钾肥：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="K_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        有机肥：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Organic_manure_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        其他：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Others_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        灌溉次数：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Irrigation_times_ManaSug" value="" class="EnteringText"
+                                                             onblur="IsIrrigationTimesLeagal(this)" />次
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        播种量：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="SowingAmount_ManaSug" value="" class="EnteringText" 
+                                                            onblur="IsDataLegal(this)" />kg/亩
+                                                    </td>
+                                                    <td>
+                                                        播种方式：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="SowingMethod_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        杂草控制：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="WeedControl_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                    <td>
+                                                        病虫害控制：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="PestControl_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        田间管理：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="FieldManagement_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                    <td>
+                                                        备注：
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="Remarks_ManaSug" value="" class="EnteringText" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!--显示图片-->
+                                        <div class="tab-pane fade" style="height: 400px ;width:610px" id="PicDiv1">
+                                            <div id="DetailImgOutDiv" class="carousel slide" data-ride="carousel">
+                                                <ol class="carousel-indicators" id="DetailOl">
+                                                    <li id="DetailLI" data-target="#DetailImgOutDiv" data-slide-to="0" class="active">
+                                                    </li>
+                                                </ol>
+                                                <div class="carousel-inner" id="DetailImgDiv">
+                                                    <div id="DetailImgNearDiv" class="item active">
+                                                        <img id="DetailDefaultImg" class="d-block w-100" src="Resource/Default.png" alt="First slide"
+                                                            name="defaultImg" />
+                                                    </div>
+                                                </div>
+                                                <a class="left carousel-control" href="#DetailImgOutDiv" role="button" data-slide="prev">
+                                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">
+                                                        Previous</span> </a><a class="right carousel-control" href="#DetailImgOutDiv" role="button"
+                                                            data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+                                                            </span><span class="sr-only">Next</span> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success glyphicon glyphicon-ok-circle" id="FarmDetailSaveBtn">
+                                保存
+                            </button>
+                            <button type="button" class="btn btn-danger glyphicon glyphicon-remove-circle" id="FarmDetailDeleteBtn">
+                                删除
+                            </button>
+                            <button type="button" class="btn btn-primary glyphicon glyphicon-off" data-dismiss="modal">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+        </div>
+        <!--综合查询信息的modal-->
+        <div class="modal fade" id="MultipleSearchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="panel panel-info">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" style="font-size: 30px;" id="H2">
+                                综合查询与统计
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <!--画图的窗口-->
+                            <div id="MultipleSearchDiv">
+                                <div class="row">
+                                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                                      <div class="sidebar-sticky" style=" background-color:#F8F9FA; padding:0; border:20px; border-color:#F8F9FA">
+                                        <br />
+                                        <br />
+                                        <form id="MultileSearchForm">
+                                            <p>市级</p>               
+                                            <select id="seoSelectCity" name="ProvinceDropdown" class="btn btn-default mySelect"> </select>
+                                            <br />
+                                            <br />
+                                            <p>县级</p>              
+                                            <select id="seoSelectCountry" name="CountryDropdown" class="btn btn-default mySelect"></select>
+                                        </form>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <button type="button" class="btn btn-success glyphicon glyphicon-search" id="selectSeo">查询</button>
+                                        <br /><br />
+                                        <button type="button" class="btn btn-warning glyphicon glyphicon-repeat" id="resetSeo">重置</button>
+
+                                      </div>
+                                    </nav>
+                                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                                    <div id="container">
+                                      <canvas class="my-4" id="myChart"></canvas>
+                                       </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary glyphicon glyphicon-off" data-dismiss="modal">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+        </div>
+        <!--菜单工作域-------------------------------------------------------------------------------------------------------------------->
+        <div id="WorkContent">
+           
+            <div id="mapDiv">
+                <br id="Anchor1" />
+                <br id="Anchor2" />
+                <br id="Anchor3" />
+                <br id="Anchor4" />
+
+                 <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation"  >
+            <ul class="nav sidebar-nav">
+                 <li class="sidebar-brand">
+                </li>
+                <li class="sidebar-brand" id="ShowFarmBtn">
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-map-marker"></i><span id="ShowFarmSpan">显示农田</span></a>
+                </li >
+                <li class="sidebar-brand" id="FarmManagementBtn">
+                    <a href="javascript:void(0);" ><i class="fa fa-fw fa-home "></i> <span>农田管理</span></a>
+                </li>
+                <li class="sidebar-brand" id="MultipleSearchBtn">
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-search"></i> <span>综合查询</span></a>
+                </li>
+                 <li class="sidebar-brand" id="EnteringInfoBtn">
+                    <a href="javascript:void(0);"><i class="fa fa-fw fa-cog"></i> <span>信息录入</span></a>
+                </li>
+                <li class="sidebar-brand" id="logBtn" onclick="openLoginModal();">
+                    <a href="javascript:void(0);"><i class="fa fa-fw fa-dropbox"></i> <span>登录&nbsp&nbsp</span></a>
+                </li>
+                <li class="sidebar-brand" id="registerBtn"  onclick="openRegisterModal();" >
+                    <a href="javascript:void(0);"><i class="fa fa-fw fa-bank"></i> <span>注册&nbsp&nbsp</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div id="page-content-wrapper">
+          <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" id="FuncitonBtn">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+          </button>
+        
+        </div>
+
+
+    </div>
+                <div>
+                    <div class=".col-xs-6 .col-md-4" id="logInDiv">
+                       <!-- <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"
+                            id="logBtn">登录</a> 
+                            <a class="btn big-register" data-toggle="modal" href="javascript:void(0)"
+                                onclick="openRegisterModal();" id="registerBtn">注册</a></div>-->
+                </div>
+            </div>
+        </div>
+        <footer class="footer footer-color-black">
+                <div class="container">
+                    <div class="copyright">
+                        © 2018 <a target="_blank" > Creative Mr Liu、Long、Ray</a>
+                    </div>
+                </div>
+        </footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                </div>
+                <!-- <div class="col-sm-4">
+                 <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">登录</a>
+                 <a class="btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">注册</a></div>-->
+                <div class="col-sm-4">
+                </div>
+            </div>
+            <div class="modal fade login" id="loginModal">
+                <div class="modal-dialog login animated">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;</button>
+                            <h4 class="modal-title logIn">
+                                用户登录</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="box">
+                                <div class="content">
+                                    <div class="social">
+                                        <img src="Resource/photo.jpeg" class="img-responsive" alt="Responsive image">
+                                    </div>
+                                    <div class="error">
+                                    </div>
+                                    <div class="form loginBox">
+                                        <form method="post" action="Ashx/VerifyIogin.ashx" accept-charset="UTF-8" id="loginForm">
+                                        <input id="email" class="form-control" type="text" placeholder="用户名" name="userName">
+                                        <input id="password" class="form-control" type="password" placeholder="密码" name="password">
+                                        <input class="btn btn-default btn-login" type="button" value="登录" onclick="loginAjax()">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="content registerBox" style="display: none;">
+                                    <div class="form">
+                                        <form method="post" html="{:multipart=>true}" data-remote="true" action="Ashx/registerCount.ashx"
+                                        accept-charset="UTF-8">
+                                        <input id="email_register" class="form-control" type="text" placeholder="用户名" name="userName">
+                                        <input id="password_register" class="form-control" type="password" placeholder="密码"
+                                            name="password">
+                                        <input id="password_confirmation" class="form-control" type="password" placeholder="再输入一次"
+                                            name="password_confirmation">
+                                        <input class="btn btn-default btn-register" type="button" value="注册" name="commit"
+                                            onclick="registerAjax()">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="forgot login-footer">
+                                <span>去 <a href="javascript: showRegisterForm();">注册一个账户</a> ?</span>
+                            </div>
+                            <div class="forgot register-footer" style="display: none">
+                                <span>已经有账户?</span> <a href="javascript: showLoginForm();">登录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    <!--Css-->
+    <link href="Script/rubick_pres.css" rel="stylesheet">
+    <!--Chart-->
+    <script src="Script/Chart.js-2.7.2/dist/Chart.bundle.js" type="text/javascript"></script>
+    <script src="Script/Chart.js-2.7.2/dist/Chart.js" type="text/javascript"></script>
+    <!--     Fonts and icons     -->
+    <link href="Script/font-awesome.min.css" rel="stylesheet">
+    <link href="Script/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--login-->
+    <link href="Script/Login/login-register.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+   <link href="Script/style.css" rel="stylesheet" type="text/css" />
+
+    <!--MyOwnJs/Css-->
+    <link href="Script/MyCss.css" rel="stylesheet" type="text/css" />
+    <!-- end wrapper -->
+    <!--   core js files    -->    <script src="Script/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="Script/bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript"></script>
+    <!--   file for adding vertical points where we activate the elements animation   -->
+    <script type="text/javascript" src="Script/jquery.waypoints.min.js"></script>
+    <!--  js library for devices recognition -->
+    <script type="text/javascript" src="Script/modernizr.js"></script>
+    <!--   file where we handle all the script from the Rubik page   -->
+    <script type="text/javascript" src="Script/rubick_pres.js"></script>
+    <script type="text/javascript" src="Script/jquery.sharrre.js"></script>
+    <script type="text/javascript" src="http://api.tianditu.com/api?v=4.0"></script>
+    
+    <script src="Script/MyJs.js" type="text/javascript"></script>
+
+    <!--Jquery-Ui.js-->
+    <script src="Script/jquery-ui.min.js" type="text/javascript"></script>
+    <!--TreeView.js-->
+    <script src="Script/jq22bootstrap-treeview/bootstrap-treeview20161102/js/bootstrap-treeview.js"
+        type="text/javascript"></script>
+
+</html>
