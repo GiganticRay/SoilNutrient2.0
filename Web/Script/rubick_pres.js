@@ -122,7 +122,7 @@ $('a[data-scroll="true"]').click(function (e) {
         $('html, body').animate({
             scrollTop: $(scroll_target).offset().top - 50
         }, 500);
-        //使得页面成为绝对定位
+        //Make it be absolute
         setTimeout(function () {
             alert("absolute");
             //document.getElementById("TuPianDiv").setAttribute("display", "none");
