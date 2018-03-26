@@ -378,7 +378,28 @@ $(function () {
     $("#LogoImg").click(function(){
         location.reload() ;
     });
+
+    //读取coockie写入text
+    document.getElementById("UserIdText").value = getCookie("UserName");
+    document.getElementById("UserPwdText").value = getCookie("pwd");
+    var boolLog = getCookie("IsLogin");
+    if(boolLog == "OK"){
+        isLog = true;
+    }
 });
+
+
+//获取cookie
+function getCookie(name){
+   var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+   if(arr != null){
+  	 return unescape(arr[2]).toString(); 
+   }else{
+  	 return null;
+   }
+} 
+
+
 
  //录入框的功能按钮事件
 function FunctionBtn(){

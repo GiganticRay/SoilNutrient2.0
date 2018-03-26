@@ -23,6 +23,14 @@ namespace SoilNutrientSoft.Web.Ashx
 
             if (UserInfoObject.Exists(userName, pwd) == true)
             {
+                //将账号密码写入coockie
+                context.Response.Cookies["UserName"].Value = userName;
+                context.Response.Cookies["pwd"].Value = pwd;
+                context.Response.Cookies["IsLogin"].Value = "OK";
+                context.Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(1);
+                context.Response.Cookies["pwd"].Expires = DateTime.Now.AddDays(1);
+                context.Response.Cookies["IsLogin"].Expires = DateTime.Now.AddDays(1);
+
                 context.Response.Write("ok");
                 context.Response.End();
             }
