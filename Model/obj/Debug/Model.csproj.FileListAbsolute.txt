@@ -23,3 +23,4 @@ D:\Stock\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
 D:\Stock\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
 D:\Stock\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
 D:\Stock\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+D:\Project_SoilNutrient2_0\SoilNutrient2.0\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

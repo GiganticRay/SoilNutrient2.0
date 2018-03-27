@@ -17,33 +17,26 @@ namespace SoilNutrientSoft.Web.Ashx
             string userName = context.Request["userName"];
             string pwd = context.Request["password"];
 
-            
-            string logName = "cuit123";
-            string logPwd = "cuit123";
+            //从数据库读取用户密码验证
+            BLL.UserInfo UserInfoObject = new BLL.UserInfo();
 
-            if (userName == logName && pwd == logPwd)
+
+            if (UserInfoObject.Exists(userName, pwd) == true)
             {
+                //将账号密码写入coockie
+                context.Response.Cookies["UserName"].Value = userName;
+                context.Response.Cookies["pwd"].Value = pwd;
+                context.Response.Cookies["IsLogin"].Value = "OK";
+                context.Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(1);
+                context.Response.Cookies["pwd"].Expires = DateTime.Now.AddDays(1);
+                context.Response.Cookies["IsLogin"].Expires = DateTime.Now.AddDays(1);
+
                 context.Response.Write("ok");
-                context.Response.End();
-            }
-            else if (userName != logName && pwd != logPwd)
-            {
-                context.Response.Write("用户名及密码错误");
-                context.Response.End();
-            }
-            else if (userName == logName && pwd != logPwd)
-            {
-                context.Response.Write("密码错误");
-                context.Response.End();
-            }
-            else if (userName != logName && pwd == logPwd)
-            {
-                context.Response.Write("用户名错误");
                 context.Response.End();
             }
             else
             {
-                context.Response.Write("登录失败");
+                context.Response.Write("登陆失败，请检查用户名或密码");
                 context.Response.End();
             }
         }

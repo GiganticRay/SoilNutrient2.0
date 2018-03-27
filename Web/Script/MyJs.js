@@ -410,7 +410,28 @@ $(function () {
     $("#LogoImg").click(function(){
         location.reload() ;
     });
+
+    //读取coockie写入text
+    document.getElementById("UserIdText").value = getCookie("UserName");
+    document.getElementById("UserPwdText").value = getCookie("pwd");
+    var boolLog = getCookie("IsLogin");
+    if(boolLog == "OK"){
+        isLog = true;
+    }
 });
+
+
+//获取cookie
+function getCookie(name){
+   var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+   if(arr != null){
+  	 return unescape(arr[2]).toString(); 
+   }else{
+  	 return null;
+   }
+} 
+
+
 
  //录入框的功能按钮事件
 function FunctionBtn(){
@@ -1344,8 +1365,19 @@ function loginAjax() {
 }
 
 function registerAjax(){
-    alert('目暂时不支持注册功能');
-    showLoginForm();
+    //action="Ashx/registerCount.ashx"
+    //alert('目暂时不支持注册功能');
+
+    //将表单整体序列化成一个数组提交到后台
+    var postData = $("#RegistForm").serializeArray();
+    $.post( "../Ashx/registerCount.ashx",postData, function( data ) {
+            if(data == "ok"){
+                alert("注册成功!");
+                showLoginForm();
+            } else {
+                 shakeModal(data); 
+            }
+        });
 }
 
 //窗口震动
