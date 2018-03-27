@@ -13,8 +13,9 @@ var ShowFarmState = false;      //是否已经显示农田
 var IsEnteringDataLegal = false; //输入数据是否合法
 var FarmInfoCountyId;
 var isLog = false;              //判断用户是否登录
-var markers = null              //聚合的标记   
- var arrayObj = null             //标记数组 
+var markers = null;          //聚合的标记   
+ var arrayObj = null ;            //标记数组 
+ var uploadPics =new Array();    //定义一个数组用于上传图片
  
 $(function () {
 
@@ -28,7 +29,7 @@ $(function () {
     addControl();
     PaintEdge();
     //为模态对话框添加拖拽
-    //$(".modal").draggable();
+    $(".modal").draggable();
     //禁止模态对话框的半透明背景滚动
     //$(".modal").css("overflow", "hidden"); 
     $(".FarmInfoMenuDiv").hide();
@@ -412,6 +413,9 @@ $(function () {
         document.body.scrollTop = 0;
     });
 
+    //点击上传按钮
+    uploadPicsBtnEvent();
+
     //读取coockie写入text
     document.getElementById("UserIdText").value = getCookie("UserName");
     document.getElementById("UserPwdText").value = getCookie("pwd");
@@ -725,6 +729,8 @@ function RestitutionUpLoadWind(){
         $("#chooseImage").val("");
         //将隐藏域的val清空
         $("#hidSavePicPath").val("");
+        //清空用于保存上传图片的数组
+        uploadPics = new Array();
 }
 
 
@@ -750,10 +756,43 @@ function img(){
                     return false;    
                 }  
                 
-
+                //将图片保存在一个全局数组中
+                uploadPics[uploadPics.length]= files[j];
                 AddPicture("#aimDiv","#aimOl",src,"#carouselExampleIndicators","defaultImg");
 
-                var img =  files[j];
+//                var img =  uploadPics[j];
+//                 //文件类型
+//                var ImgType = img.type;
+//                //文件名
+//                var ImgName = img.name;
+//                var reader = new FileReader();
+//                reader.readAsDataURL(img);
+//                reader.onload = function(e){
+//                      //获取文件的base64数据
+//                   var postStr =reader.result;
+//                   //提交数据
+//                     $.post("../Ashx/UploadImgs.ashx",{postData:postStr},function(data){
+//                    //向隐藏域中添加数据
+//                     hiddenPic=  $("#hidSavePicPath").val();
+//                     if(hiddenPic.length==0){
+//                        $("#hidSavePicPath").val(data);
+//                     }else{
+//                        $("#hidSavePicPath").val(hiddenPic+";"+data);
+//                     }
+//                });
+//                }
+
+}
+             //$('#chooseImage').val("");
+});
+}
+
+//点击上传按钮
+function uploadPicsBtnEvent(){
+    $("#uploadPicBtn").click(function(){
+        for (var j = 0; j <   uploadPics.length      ; j++)
+        {
+        	 var img =  uploadPics[j];
                  //文件类型
                 var ImgType = img.type;
                 //文件名
@@ -774,9 +813,12 @@ function img(){
                      }
                 });
                 }
-}
-             //$('#chooseImage').val("");
-});
+        }
+         swal({ title: "上传成功！",
+                            type: "success",
+                            timer:1500
+                              });   
+    });
 }
 
 //动态加载图片

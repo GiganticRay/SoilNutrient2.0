@@ -285,3 +285,14 @@ a
  {
      cursor:pointer;
      }
+.panel
+{
+    margin:0;
+    }
+.tab-content > .active
+ {
+     height:auto !important;
+     }
+ .DetailbtnsClass
+ {
+     }
