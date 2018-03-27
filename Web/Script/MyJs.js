@@ -28,9 +28,9 @@ $(function () {
     addControl();
     PaintEdge();
     //为模态对话框添加拖拽
-    $(".modal").draggable();
+    //$(".modal").draggable();
     //禁止模态对话框的半透明背景滚动
-    $(".modal").css("overflow", "hidden"); 
+    //$(".modal").css("overflow", "hidden"); 
     $(".FarmInfoMenuDiv").hide();
     $("#ShowFarmInfodiv1").show();
     //----------------------------------------------------------------显示农田信息开始
@@ -409,6 +409,7 @@ $(function () {
     //Logo的点击事件
     $("#LogoImg").click(function(){
         location.reload() ;
+        document.body.scrollTop = 0;
     });
 
     //读取coockie写入text
@@ -1088,7 +1089,7 @@ function IsPhoneNumLegal(tagObject) {
     //获取当前标签上的值
     var str = tagObject.value;
     if (reg.test(str) == false) {
-        $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343' >x 请输入正确的电话号码</font></p>" }).popover("show");
+        $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343' >请输入正确的电话号码</font></p>" }).popover("show");
         IsEnteringDataLegal = false;
     }
     else {
@@ -1105,7 +1106,7 @@ function IsDataLegal(tagObject) {
     var str = tagObject.value;
     //判断是否满足正则
     if (reg.test(str) == false) {
-        $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343'>x 请输入非负数</font></p>" }).popover("show");
+        $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343'>请输入合法数据</font></p>" }).popover("show");
         IsEnteringDataLegal = false;
         return;
     }
@@ -1122,7 +1123,7 @@ function IsIrrigationTimesLeagal(tagObject) {
     var str = tagObject.value;
     //判断是否满足正则
     if (reg.test(str) == false) {
-        $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343'>x 请输入正整数</font></p>" }).popover("show");
+        $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343'>请输入合法数据</font></p>" }).popover("show");
         IsEnteringDataLegal = false;
         return;
     }
@@ -1139,7 +1140,7 @@ function ChangeEvent(tagObject){
     var str = tagObject.value;
     //判断是否满足正则
     if (reg.test(str) == false) {
-         $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343' font-size='5px'>x 输入格式错误</font></p>" }).popover("show");
+         $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343' font-size='5px'>请输入合法数据</font></p>" }).popover("show");
         IsEnteringDataLegal = false;
         return;
     }
@@ -1372,7 +1373,10 @@ function registerAjax(){
     var postData = $("#RegistForm").serializeArray();
     $.post( "../Ashx/registerCount.ashx",postData, function( data ) {
             if(data == "ok"){
-                alert("注册成功!");
+                swal({ title: "注册成功!",
+                            type: "success",
+                            timer:1500
+                        })
                 showLoginForm();
             } else {
                  shakeModal(data); 

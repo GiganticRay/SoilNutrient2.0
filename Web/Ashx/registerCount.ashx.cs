@@ -23,7 +23,7 @@ namespace SoilNutrientSoft.Web.Ashx
 
             if (UserInfoService.Exists(Guid_Code) == false)
             {
-                context.Response.Write("邀请码不正确、请联系1443742816、2101300125购买邀请码！");
+                context.Response.Write("邀请码不正确,请QQ联系 1443742816 , 2101300125 获取邀请码！");
                 context.Response.End();
             }
             else if (pwd != confirmPwd)
