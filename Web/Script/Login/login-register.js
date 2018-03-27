@@ -52,7 +52,11 @@ function loginAjax() {
     $.post( "../Ashx/VerifyIogin.ashx",postData, function( data ) {
             if(data == "ok"){
                 $('#loginModal').modal('hide');
-                
+                swal({
+                    title: "登录成功！",
+                    type: "success",
+                    timer: 1500
+                });
             } else {
                  shakeModal(data); 
             }

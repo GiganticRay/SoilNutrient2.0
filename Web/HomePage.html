@@ -36,7 +36,7 @@
                 </div>
             </div>
             <a href="#Anchor4" data-scroll="true" data-id="#Anchor4" class="scroll-arrow hidden-xs hidden-sm">
-                <i class="fa fa-angle-down"></i></a>
+                <i class="fa fa-angle-down" id="beginBtn"></i></a>
         </div>
         <!-- 录入农田信息模态框（Modal） -->
         <div class="modal fade" id="EnterFarmInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -598,7 +598,7 @@
                                     <div class="panel-body">
                                         <!--multiple="multiple"-->
                                         <input type="file" id="chooseImage" accept="image/*" />
-                                        <input type="button" name="name" id="uploadPicBtn" class="btn btn-success" value="上传" style="float:right"/>
+                                        <input type="button" name="name"  id="uploadPicBtn" onclick="uploadPicsBtnEvent()"  class="btn btn-success" value="上传" style="float:right;display:none"/>
                                         <!--隐藏域，用于保存图片的路径-->
                                         <input type="hidden" id="hidSavePicPath" name="picPath" value="" />
                                         <!-- 保存用户自定义的背景图片 -->

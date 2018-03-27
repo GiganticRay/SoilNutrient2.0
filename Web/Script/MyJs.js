@@ -414,7 +414,7 @@ $(function () {
     });
 
     //点击上传按钮
-    uploadPicsBtnEvent();
+    //uploadPicsBtnEvent();
 
     //读取coockie写入text
     document.getElementById("UserIdText").value = getCookie("UserName");
@@ -423,6 +423,22 @@ $(function () {
     if(boolLog == "OK"){
         isLog = true;
     }
+
+    //设置文档加载2秒后，功能按钮显示
+    setTimeout(function(){
+         $("#FuncitonBtn").css("display","block");
+    },2000);
+
+
+    //用空格时，手动调用开始按钮的点击事件
+    $(document).keydown(function(e){
+    if(!e) var e = window.event; 
+    if(e.keyCode==32){
+       $("#beginBtn").click();
+    }
+ });
+
+
 });
 
 
@@ -435,7 +451,6 @@ function getCookie(name){
   	 return null;
    }
 } 
-
 
 
  //录入框的功能按钮事件
@@ -739,6 +754,7 @@ function img(){
  $('#chooseImage').on('change',function(){  
             //获取文件对象
             var files = this.files;
+            
             for (var j = 0; j < files.length; j++) {
                   //转成可以在本地预览的格式 
                  var  src = window.URL.createObjectURL(files[j]); 
@@ -755,44 +771,13 @@ function img(){
                    $(this).val("");
                     return false;    
                 }  
-                
+               
                 //将图片保存在一个全局数组中
-                uploadPics[uploadPics.length]= files[j];
+                //uploadPics[uploadPics.length]= files[j];
+
                 AddPicture("#aimDiv","#aimOl",src,"#carouselExampleIndicators","defaultImg");
 
-//                var img =  uploadPics[j];
-//                 //文件类型
-//                var ImgType = img.type;
-//                //文件名
-//                var ImgName = img.name;
-//                var reader = new FileReader();
-//                reader.readAsDataURL(img);
-//                reader.onload = function(e){
-//                      //获取文件的base64数据
-//                   var postStr =reader.result;
-//                   //提交数据
-//                     $.post("../Ashx/UploadImgs.ashx",{postData:postStr},function(data){
-//                    //向隐藏域中添加数据
-//                     hiddenPic=  $("#hidSavePicPath").val();
-//                     if(hiddenPic.length==0){
-//                        $("#hidSavePicPath").val(data);
-//                     }else{
-//                        $("#hidSavePicPath").val(hiddenPic+";"+data);
-//                     }
-//                });
-//                }
-
-}
-             //$('#chooseImage').val("");
-});
-}
-
-//点击上传按钮
-function uploadPicsBtnEvent(){
-    $("#uploadPicBtn").click(function(){
-        for (var j = 0; j <   uploadPics.length      ; j++)
-        {
-        	 var img =  uploadPics[j];
+                var img =  files[j];
                  //文件类型
                 var ImgType = img.type;
                 //文件名
@@ -813,12 +798,45 @@ function uploadPicsBtnEvent(){
                      }
                 });
                 }
-        }
-         swal({ title: "上传成功！",
-                            type: "success",
-                            timer:1500
-                              });   
-    });
+                }
+            
+             //$('#chooseImage').val("");
+});
+}
+
+//点击上传按钮
+function uploadPicsBtnEvent(){
+//        for (var j = 0; j <   uploadPics.length      ; j++)
+//        {
+//        	 var img =  uploadPics[j];
+//                 //文件类型
+//                var imgtype = img.type;
+//                //文件名
+//                var imgname = img.name;
+//                var reader = new filereader();
+//                reader.readasdataurl(img);
+//                reader.onload = function(e){
+//                      //获取文件的base64数据
+//                   var poststr =reader.result;
+//                   //提交数据
+//                     $.post("../ashx/uploadimgs.ashx",{postdata:poststr},function(data){
+//                    //向隐藏域中添加数据
+//                     hiddenpic=  $("#hidsavepicpath").val();
+//                     if(hiddenpic.length==0){
+//                        $("#hidsavepicpath").val(data);
+//                     }else{
+//                        $("#hidsavepicpath").val(hiddenpic+";"+data);
+//                     }
+//                });
+//                }
+//        }
+
+         swal({ 
+                title: "上传成功！",
+                type: "success",
+                timer:1500
+                    });   
+
 }
 
 //动态加载图片
@@ -1401,12 +1419,18 @@ function loginAjax() {
             if(data == "ok"){
                 $('#loginModal').modal('hide');
                 isLog=true;
+                  swal({
+                    title: "登录成功！",
+                    type: "success",
+                    timer: 1500
+                });
             } else {
                  shakeModal(data); 
             }
         });
 }
 
+//验证注册
 function registerAjax(){
     //action="Ashx/registerCount.ashx"
     //alert('目暂时不支持注册功能');

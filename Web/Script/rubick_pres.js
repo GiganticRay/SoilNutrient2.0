@@ -125,7 +125,7 @@ $('a[data-scroll="true"]').click(function (e) {
         //Make it be absolute
         setTimeout(function () {
             $("#TuPianDiv").css("display", "none");
-            $("#FuncitonBtn").css("display","block");
+           // $("#FuncitonBtn").css("display","block");
         }, 1000);
         
     }
