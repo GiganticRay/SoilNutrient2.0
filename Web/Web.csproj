@@ -280,7 +280,6 @@
     <Content Include="Script\Chart.js-2.7.2\test\specs\scale.logarithmic.tests.js" />
     <Content Include="Script\Chart.js-2.7.2\test\specs\scale.radialLinear.tests.js" />
     <Content Include="Script\Chart.js-2.7.2\test\specs\scale.time.tests.js" />
-    <Content Include="Script\font-awesome.css" />
     <Content Include="Script\font-awesome.min.css" />
     <Content Include="Script\jq22bootstrap-treeview\bootstrap-treeview20161102\css\bootstrap-treeview.css" />
     <Content Include="Script\jq22bootstrap-treeview\bootstrap-treeview20161102\css\bootstrap-treeview.min.css" />
@@ -304,8 +303,8 @@
     <Content Include="Script\MyJs.js" />
     <Content Include="Script\rubick_pres.css" />
     <Content Include="Script\style.css" />
+    <Content Include="Script\sweetalert\sweetalert-dev.min.js" />
     <Content Include="Script\sweetalert\sweetalert.css" />
-    <Content Include="Script\sweetalert\sweetalert.min.js" />
     <Content Include="test\1.htm" />
     <Content Include="test\sweetalert.html" />
     <Content Include="test\test.html" />

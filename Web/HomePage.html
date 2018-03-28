@@ -99,13 +99,13 @@
                                                     经度:
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="LongitudeDegree"  data-toggle="popover" value="" class="EnteringText " 
+                                                    <input type="text" name="LongitudeDegree" id="LogD"  value="" class="EnteringText " 
                                                         onblur="IsDataLegal(this)"" /><strong>°</strong>
                                                 </td>
                                                 <td>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="LongitudeMinute" value="" class="EnteringText" 
+                                                    <input type="text" name="LongitudeMinute" id="LogM" value="" class="EnteringText" 
                                                         onblur="IsDataLegal(this)" /><strong>'</strong>
                                                 </td>
                                             </tr>
@@ -113,14 +113,14 @@
                                                 <td>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="LongitudeSecond" value="" class="EnteringText" 
+                                                    <input type="text" name="LongitudeSecond" id="LogS" value="" class="EnteringText" 
                                                         onblur="IsDataLegal(this)" /><strong>"</strong>
                                                 </td>
                                                 <td>
                                                     纬度:
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="LatitudeDegree" value="" class="EnteringText" 
+                                                    <input type="text" name="LatitudeDegree" value="" id="LatD" class="EnteringText" 
                                                         onblur="IsDataLegal(this)" /><strong>°</strong>
                                                 </td>
                                             </tr>
@@ -128,13 +128,13 @@
                                                 <td>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="LatitudeMinute" value="" class="EnteringText" 
+                                                    <input type="text" name="LatitudeMinute" id="LatM" value="" class="EnteringText" 
                                                         onblur="IsDataLegal(this)" /><strong>'</strong>
                                                 </td>
                                                 <td>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="LatitudeSecond" value="" class="EnteringText" 
+                                                    <input type="text" name="LatitudeSecond" value="" id="LatS" class="EnteringText" 
                                                         onblur="IsDataLegal(this)" /><strong>"</strong>
                                                 </td>
                                             </tr>
@@ -1747,15 +1747,15 @@
     <link href="Script/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!--login-->
     <link href="Script/Login/login-register.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">-->
 
    <link href="Script/style.css" rel="stylesheet" type="text/css" />
 
   
 
     <!--sweetalert-->
-     <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.css" rel="stylesheet">
-
+    <!-- <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.css" rel="stylesheet">-->
+<link href="Script/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
        <!--MyOwnJs/Css-->
     <link href="Script/MyCss.css" rel="stylesheet" type="text/css" />
 
@@ -1785,5 +1785,6 @@
     <script src="Script/jq22bootstrap-treeview/bootstrap-treeview20161102/js/bootstrap-treeview.js"
         type="text/javascript"></script>
     <!--sweetalert-->
-    <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+   <!-- <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.min.js"></script>-->
+    <script src="Script/sweetalert/sweetalert-dev.min.js" type="text/javascript"></script>
 </html>

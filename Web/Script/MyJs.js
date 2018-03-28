@@ -97,6 +97,11 @@ $(function () {
     $("#ShowInfoDeleteBtn").click(function(){
         //判断是否登录
         if(isLog==false){
+           swal({ 
+                title: "请先登录",
+                type: "warning",
+                timer:1500
+                });
            openLoginModal();
         }else{
             check(function(){
@@ -130,9 +135,15 @@ $(function () {
     $("#ShowInfoConFirmSubmitBtn").click(function(){
         //判断是否登录
         if(isLog==false){
+           swal({ 
+                title: "请先登录",
+                type: "warning",
+                timer:1500
+                });
            openLoginModal();
         }else{
-        save(function(){
+             if(IsEnteringDataLegal){
+                 save(function(){
              //将表单整体序列化成一个数组提交到后台
             var postDataInMarkerForm = $("#dataInMarkerForm").serializeArray();
             $.ajax({
@@ -160,6 +171,13 @@ $(function () {
                     }
                 });
         });
+                }else{
+                 swal({ 
+                     title: "请检查数据格式是否正确！",
+                    type: "warning",
+                    timer:1500
+                     });
+                }
          }
     });
 
@@ -190,6 +208,8 @@ $(function () {
     //----------------------------------------------------------------农田详细管理开始
     //注册点击此菜单按钮事件
     $("#FarmManagementBtn").click(function(){
+     //点击"农田详情管理"时，将IsEnteringDataLegal设置为true
+        IsEnteringDataLegal= true;
      $('[data-toggle="offcanvas"]').click();
         //清空窗体数据
         ClearThisWindowData();  
@@ -198,11 +218,17 @@ $(function () {
         //点击按钮时加载tree结构的数据
         getTree();
         $("#divShowInfor").modal('show');
+       
     });
     //删除
     $("#FarmDetailDeleteBtn").click(function(){
         //判断是否登录
         if(isLog==false){
+           swal({ 
+                title: "请先登录",
+                type: "warning",
+                timer:1500
+                });
            openLoginModal();
         }else{
         //获取隐藏域id
@@ -255,6 +281,11 @@ $(function () {
     $("#FarmDetailSaveBtn").click(function(){
         //判断是否登录
         if(isLog==false){
+           swal({ 
+                title: "请先登录",
+                type: "warning",
+                timer:1500
+                });
            openLoginModal();
         }else{
          //获取隐藏域id
@@ -267,7 +298,8 @@ $(function () {
                      timer:1500
                         });
         }else{
-        save(function(){
+            if(IsEnteringDataLegal){
+                     save(function(){
             //将表单整体序列化成一个数组提交到后台
             var postData = $("#dataInDetailForm").serializeArray();
             $.ajax({
@@ -295,6 +327,13 @@ $(function () {
                     }
             });
         });
+                }else{
+                swal({ 
+                     title: "请检查数据格式是否正确！",
+                    type: "warning",
+                    timer:1500
+                     });
+                }
             }
         }
     });
@@ -452,7 +491,6 @@ function getCookie(name){
    }
 } 
 
-
  //录入框的功能按钮事件
 function FunctionBtn(){
      var trigger = $('.hamburger'),
@@ -529,7 +567,11 @@ function closeInfo() {
 function clickOpenWindow(dataId) {        
     //清空窗体数据
     ClearThisWindowData();  
-                        
+       
+    //点击标记时，将IsEnteringDataLegal设置为true
+    IsEnteringDataLegal= true;
+    
+                     
     //将id赋值给隐藏的id域
     $("#hiddenIdInMarkeWindow").val(dataId);
 
@@ -699,42 +741,6 @@ function RestitutionShowWind(OlId,imgDivId,imgOutDivId,liId,imgNearDivId,default
     divObject.appendChild(newDiv);
 }
 
- //通过异步提交给一般处理程序 给县区选项赋值
- //selector "区县"对应的选择器
- //cId           “市”在数据库中的id
- //countryId     “区/县”在数据库中的id
- //selectorOfDiv  外层div对应的选择器
-function getDataToCountry(selectorOfCountry, cId,countryId,selectorOfDiv) {
-    //清空
-    $(selectorOfCountry).empty();
-    //通过异步读取数据
-    $.post("../Ashx/LoadCounty.ashx", { cId: cId }, function (data) {
-        $(selectorOfCountry).html(data);
-        var dataAreaInGet = $(selectorOfDiv);
-        //给区县赋值
-        dataAreaInGet[1].value = countryId;
-    });
-}
-
-
-
- //通过异步提交给一般处理程序 给县区选项赋值
- //selector "区县"对应的选择器
- //cId           “市”在数据库中的id
- //countryId     “区/县”在数据库中的id
- //selectorOfDiv  外层div对应的选择器
-function getDataToCountry(selectorOfCountry, cId,countryId,selectorOfDiv) {
-    //清空
-    $(selectorOfCountry).empty();
-    //通过异步读取数据
-    $.post("../Ashx/LoadCountrySelect.ashx", { cId: cId }, function (data) {
-        $(selectorOfCountry).html(data);
-        var dataAreaInGet = $(selectorOfDiv);
-        //给区县赋值
-        dataAreaInGet[1].value = countryId;
-    });
-}
-
 
  //上传图片的窗口恢复原状
 function RestitutionUpLoadWind(){
@@ -897,7 +903,9 @@ function getTree() {
                             //data["tags"]  选中的ID
                             if(data["tags"] >= 0){
                                
-
+                        //点击节点时，将IsEnteringDataLegal设置为true
+                        IsEnteringDataLegal= true;
+    
                         //调用此函数可将所有text类型的标签中的数据清空
                         ClearThisWindowData()
                         //将展示图片的窗口恢复原状
@@ -1086,60 +1094,97 @@ function removeData(chart) {
 function ConFirmSubmitClick() {
     //判断是否登录
     if(isLog==false){
+         swal({ 
+                title: "请先登录",
+                type: "warning",
+                timer:1500
+                });
        openLoginModal();
     }else{
-    //先判断数据是否合法
-    if (IsEnteringDataLegal == false) {
-           swal({ 
-                title: "请检查数据格式是否正确",
-                type: "error",
-                timer:1500
-                     });
-        return;
-    }
-    else{
-        var postdata = $("#EnteringFarmInfoForm").serializeArray();
-        $.ajax({
-            url:"../Ashx/ProcesAllFormData.ashx",
-            data:postdata,
-            type:"Post",
-            //dataType:"Json",
-            success:function(Backdata){
-                if(Backdata == "ok"){
-                        swal({ 
-                        title: "录入成功",
-                        type: "success",
-                        timer:1500
-                     });
-                    //清空窗口数据
-                    RestitutionUpLoadWind();
-                    //刷新显示农田
-                    $("#ShowFarmBtn").click();
-                    $("#ShowFarmBtn").click();
-                    //清除窗体数据
-                     ClearThisWindowData();
-                     //关闭
-                    $("#EnteringCloseBtn").click();
-                }
-                else{
-                    swal({
-                        title:"录入失败！",
-                         type: "error",
-                        timer:1500
-                    });
-                }
-            }
-        });
-    }
-    }
+
+    //获取用户输入的经纬度,并进行初略判断是否是四川省内的坐标点
+    var logD = $("#LogD").val();
+    var logM = $("#LogM").val();
+    var logS = $("#LogS").val();
     
+    var log = logD*1+logM/60.0*1+logS/3600.0*1;
+
+    var latD = $("#LatD").val();
+    var latM = $("#LatM").val();
+    var latS = $("#LatS").val();
+
+    var lat = latD*1+latM/60.0*1+latS/3600.0*1;
+//    在东经97°21′~108°31′，北纬26°03′~34°19′之间。
+    //判断是否输入经纬度
+      if(log>97.35&&log<108.51666666666667&&lat>26.05&&lat<34.31666666666667){
+         //判断数据是否合法
+         if (IsEnteringDataLegal == false|| $(".popover-content, .arrow").length>0) {
+                   swal({ 
+                        title: "请检查数据格式是否正确",
+                        type: "error",
+                        timer:1500
+                             });
+                     return;
+            }
+            else{
+            var postdata = $("#EnteringFarmInfoForm").serializeArray();
+            $.ajax({
+                url:"../Ashx/ProcesAllFormData.ashx",
+                data:postdata,
+                type:"Post",
+                //dataType:"Json",
+                success:function(Backdata){
+                    if(Backdata == "ok"){
+                            swal({ 
+                            title: "录入成功",
+                            type: "success",
+                            timer:1500
+                         });
+                         //上传图片的窗口恢复原状
+                        RestitutionUpLoadWind();
+                        //刷新显示农田
+                        $("#ShowFarmBtn").click();
+                        $("#ShowFarmBtn").click();
+                        //清除窗体数据
+                         ClearThisWindowData();
+                         //关闭
+                        $("#EnteringCloseBtn").click();
+                    }
+                    else{
+                        swal({
+                            title:"录入失败！",
+                             type: "error",
+                            timer:1500
+                        });
+                    }
+                }
+            });
+    }
+       }else{
+         swal({ 
+                title: "请输入正确的四川省内的经纬度坐标",
+                type: "error",
+                timer:2000
+                     });
+       }
+    }
 }
-//Modal清空
+//Modal清空  录入界面的重置按钮事件
 function ResetBtnClick(){
+    //上传图片的窗口恢复原状
     RestitutionUpLoadWind();
-    $(":text").val("").css("background-color", "#FFFFFF");
-    // $("p").css({ "background-color": "yellow", "font-size": "200%" });
+    //将数据清空
+    $(":text").val("");
     IsEnteringDataLegal = false;
+    
+        //将所有的输入错误按钮去除
+    $(".popover-content, .arrow").parent().popover('destroy');
+
+    swal({ 
+            title: "重置成功",
+            type: "success",
+            timer:2000
+                    });
 }
 
 //判断PhoneNumber是否合法
@@ -1158,6 +1203,7 @@ function IsPhoneNumLegal(tagObject) {
           $(tagObject).popover('destroy');
     }
 }
+
 //判断 土块面积 kg/亩 经纬度 是否合法
 function IsDataLegal(tagObject) {
     //判断非负数的正则表达式
@@ -1193,22 +1239,6 @@ function IsIrrigationTimesLeagal(tagObject) {
     }
 }
 
-function ChangeEvent(tagObject){
-     //判断非负数的正则表达式
-    var reg = /^\d+(\.{0,1}\d+){0,1}$/;
-    //获取标签上的value
-    var str = tagObject.value;
-    //判断是否满足正则
-    if (reg.test(str) == false) {
-         $(tagObject).data("toogle", "right").data("placement", "right").data("container", $(tagObject).parent()).popover({ "trigger": "manual","html":"true","content":"<p ><font color='#fc4343' font-size='5px'>请输入合法数据</font></p>" }).popover("show");
-        IsEnteringDataLegal = false;
-        return;
-    }
-    else {
-        IsEnteringDataLegal = true;
-        $(tagObject).popover('destroy');
-    }
-}
 //-----------------------------------------------------------------------------------------------------------------录入农田信息结束
 
 //对地图的处理
@@ -1391,6 +1421,7 @@ function showLoginForm(){
 
 //打开登录窗口
 function openLoginModal(){
+   
     $('[data-toggle="offcanvas"]').click();
     showLoginForm();
     $('#loginModal').modal('show');    
@@ -1450,7 +1481,7 @@ function registerAjax(){
         });
 }
 
-//窗口震动
+//登录窗口或者注册窗口震动
 function shakeModal(data) {
     $('#loginModal .modal-dialog').addClass('shake');
     $('.error').addClass('alert alert-danger').html(data);
