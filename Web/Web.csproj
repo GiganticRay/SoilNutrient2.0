@@ -78,6 +78,7 @@
     <Content Include="Controls\copyright.ascx" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.html" />
+    <Content Include="jstoexecltest.html" />
     <Content Include="Resource\HomePageLogo.png" />
     <Content Include="Resource\Default.png" />
     <Content Include="Resource\homePagePic1.jpeg" />
@@ -302,6 +303,7 @@
     <Content Include="Script\jquery-2.2.4.min.js" />
     <Content Include="Script\jquery-3.2.1.js" />
     <Content Include="Script\jquery-ui.min.js" />
+    <Content Include="Script\JsonExportExcel.min.js" />
     <Content Include="Script\Login\login-register.css" />
     <Content Include="Script\Login\login-register.js" />
     <Content Include="Script\MyCss.css" />
@@ -585,6 +587,9 @@
     </Compile>
     <Compile Include="Ashx\ProcesAllFormData.ashx.cs">
       <DependentUpon>ProcesAllFormData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ashx\ProcessJsonExportExcel.ashx.cs">
+      <DependentUpon>ProcessJsonExportExcel.ashx</DependentUpon>
     </Compile>
     <Compile Include="Ashx\ProcessSeoSelect.ashx.cs">
       <DependentUpon>ProcessSeoSelect.ashx</DependentUpon>
@@ -1051,6 +1056,7 @@
     <Content Include="Ashx\VerifyIogin.ashx" />
     <Content Include="Ashx\registerCount.ashx" />
     <Content Include="Ashx\PicUpload.ashx" />
+    <Content Include="Ashx\ProcessJsonExportExcel.ashx" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Web.csproj.GenerateResource.Cache" />
     <None Include="obj\Debug\Web.csprojResolveAssemblyReference.cache" />

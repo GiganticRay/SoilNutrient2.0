@@ -85,3 +85,11 @@ E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码
 E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Common\obj\Debug\SoilNutrientSoft.Common.dll
 E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Common\obj\Debug\SoilNutrientSoft.Common.pdb
 E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\bin\Debug\SoilNutrientSoft.Common.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\bin\Debug\SoilNutrientSoft.Common.pdb
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\bin\Debug\COM.Excel.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\bin\Debug\Excel.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\bin\Debug\OpenSmtp.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\bin\Debug\OWC10Chart.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\obj\Debug\SoilNutrientSoft.Common.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\Common\obj\Debug\SoilNutrientSoft.Common.pdb

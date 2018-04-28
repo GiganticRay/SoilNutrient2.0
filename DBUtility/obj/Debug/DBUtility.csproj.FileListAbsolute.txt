@@ -85,3 +85,11 @@ E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码
 E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.dll
 E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.pdb
 E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\bin\Debug\SoilNutrientSoft.DBUtility.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\bin\Debug\SoilNutrientSoft.DBUtility.pdb
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\bin\Debug\IBatisNet.Common.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\bin\Debug\IBatisNet.DataMapper.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\bin\Debug\MySql.Data.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\bin\Debug\System.Data.SQLite.DLL
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.dll
+D:\Experience_Lab\SimpleSoilNutrient2.0\SoilNutrient2.0\DBUtility\obj\Debug\SoilNutrientSoft.DBUtility.pdb
