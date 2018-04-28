@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("Maticsoft")]
 [assembly: AssemblyCompany("Maticsoft")]
 [assembly: AssemblyProduct("Maticsoft.DBUtility")]
-[assembly: AssemblyCopyright("Copyright (C) Maticsoft 2004-2010")]
+[assembly: AssemblyCopyright("Copyright (C) Maticsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyVersion("3.5.0")]

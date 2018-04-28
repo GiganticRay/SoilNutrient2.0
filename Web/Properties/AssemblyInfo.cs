@@ -7,11 +7,10 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("SoilNutrientSoft.Web")]
-[assembly: AssemblyDescription("Maticsoft.Web 三层示例 By 动软卓越 ")]
+[assembly: AssemblyDescription("Maticsoft.Web  ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("动软卓越")]
 [assembly: AssemblyProduct("Maticsoft.Web 简单三层示例")]
-[assembly: AssemblyCopyright("Copyright (C) Maticsoft 2004-2012")]
+[assembly: AssemblyCopyright("Copyright (C) Maticsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyVersion("2.0.0.0")]

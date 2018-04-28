@@ -28,3 +28,15 @@ D:\stockMax\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
 D:\stockMax\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
 D:\stockMax\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
 D:\stockMax\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+E:\四川养分项目\SoilNutrient2.1\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+E:\四川养分项目\SoilNutrient2.1\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+E:\四川养分项目\SoilNutrient2.1\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+E:\四川养分项目\SoilNutrient2.1\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+C:\Users\红BUF\Desktop\四川省农田信息管理系统\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+C:\Users\红BUF\Desktop\四川省农田信息管理系统\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+C:\Users\红BUF\Desktop\四川省农田信息管理系统\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+C:\Users\红BUF\Desktop\四川省农田信息管理系统\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb
+E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.dll
+E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Model\bin\Debug\SoilNutrientSoft.Model.pdb
+E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.dll
+E:\四川农田信息管理系统项目\四川省农田信息管理系统\代码\SoilNutrient2.0三层全\SoilNutrient2.0\Model\obj\Debug\SoilNutrientSoft.Model.pdb

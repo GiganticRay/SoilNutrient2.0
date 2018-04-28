@@ -80,7 +80,7 @@
     <Content Include="HomePage.html" />
     <Content Include="Resource\HomePageLogo.png" />
     <Content Include="Resource\Default.png" />
-    <Content Include="Resource\homePagePic.jpeg" />
+    <Content Include="Resource\homePagePic1.jpeg" />
     <Content Include="Resource\photo.jpeg" />
     <Content Include="obj\Debug\SoilNutrientSoft.Web.dll" />
     <Content Include="obj\Debug\SoilNutrientSoft.Web.pdb" />
@@ -280,7 +280,12 @@
     <Content Include="Script\Chart.js-2.7.2\test\specs\scale.logarithmic.tests.js" />
     <Content Include="Script\Chart.js-2.7.2\test\specs\scale.radialLinear.tests.js" />
     <Content Include="Script\Chart.js-2.7.2\test\specs\scale.time.tests.js" />
+    <Content Include="Script\fileinput\fileinput.css" />
+    <Content Include="Script\fileinput\fileinput.js" />
+    <Content Include="Script\fileinput\fileinput_locale_zh.js" />
     <Content Include="Script\font-awesome.min.css" />
+    <Content Include="Script\img\loading-sm.gif" />
+    <Content Include="Script\img\loading.gif" />
     <Content Include="Script\jq22bootstrap-treeview\bootstrap-treeview20161102\css\bootstrap-treeview.css" />
     <Content Include="Script\jq22bootstrap-treeview\bootstrap-treeview20161102\css\bootstrap-treeview.min.css" />
     <Content Include="Script\jq22bootstrap-treeview\bootstrap-treeview20161102\css\default.css" />
@@ -305,9 +310,6 @@
     <Content Include="Script\style.css" />
     <Content Include="Script\sweetalert\sweetalert-dev.min.js" />
     <Content Include="Script\sweetalert\sweetalert.css" />
-    <Content Include="test\1.htm" />
-    <Content Include="test\sweetalert.html" />
-    <Content Include="test\test.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -574,6 +576,9 @@
     </Compile>
     <Compile Include="Ashx\LoadSeoCountrySelect.ashx.cs">
       <DependentUpon>LoadSeoCountrySelect.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ashx\PicUpload.ashx.cs">
+      <DependentUpon>PicUpload.ashx</DependentUpon>
     </Compile>
     <Compile Include="Ashx\PostEnteringFarmInfo.ashx.cs">
       <DependentUpon>PostEnteringFarmInfo.ashx</DependentUpon>
@@ -1045,6 +1050,7 @@
     <Content Include="Ashx\ProcessUpdateAllData.ashx" />
     <Content Include="Ashx\VerifyIogin.ashx" />
     <Content Include="Ashx\registerCount.ashx" />
+    <Content Include="Ashx\PicUpload.ashx" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Web.csproj.GenerateResource.Cache" />
     <None Include="obj\Debug\Web.csprojResolveAssemblyReference.cache" />

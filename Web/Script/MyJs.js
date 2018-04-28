@@ -15,9 +15,12 @@ var FarmInfoCountyId;
 var isLog = false;              //判断用户是否登录
 var markers = null;          //聚合的标记   
  var arrayObj = null ;            //标记数组 
- var uploadPics =new Array();    //定义一个数组用于上传图片
  
 $(function () {
+
+    setTimeout(function(){
+        $(".input-group ").css("float", "left");
+    }, 3000);
 
     //设置map的高度
     boxheight();
@@ -77,16 +80,16 @@ $(function () {
 
                      arrayObj = new Array();
                     //添加标记
-                    for (var i = 0; i < data_info.length; i++) {
+                    for (var j = 0; j < data_info.length; j++) {
                          // 创建标注
-                        var marker = new T.Marker(new T.LngLat(data_info[i][0], data_info[i][1])); 
+                        var marker = new T.Marker(new T.LngLat(data_info[j][0], data_info[j][1])); 
                          arrayObj.push(marker);
                         //获取标记文本
-                        var content = data_info[i][2];
+                        var content = data_info[j][2];
                         // 将标注添加到地图中
                         map.addOverLay(marker);    
                         //注册标记的鼠标触摸,移开事件           
-                        addClickHandler(content, marker, data_info[i][3]);
+                        addClickHandler(content, marker, data_info[j][3]);
                     }
                      markers = new T.MarkerClusterer(map, {markers: arrayObj});
                 }
@@ -442,7 +445,7 @@ $(function () {
     //----------------------------------------------------------------录入农田信息结束
 
     //上传图片按钮的改变事件
-    img();
+    //img();
     //录入框的功能按钮事件
     FunctionBtn();
 
@@ -452,8 +455,7 @@ $(function () {
         document.body.scrollTop = 0;
     });
 
-    //点击上传按钮
-    //uploadPicsBtnEvent();
+
 
     //读取coockie写入text
     document.getElementById("UserIdText").value = getCookie("UserName");
@@ -461,6 +463,7 @@ $(function () {
     var boolLog = getCookie("IsLogin");
     if(boolLog == "OK"){
         isLog = true;
+        $("#btnLogin").val("已登录,点击退出登录");
     }
 
     //设置文档加载2秒后，功能按钮显示
@@ -471,12 +474,41 @@ $(function () {
 
     //用空格时，手动调用开始按钮的点击事件
     $(document).keydown(function(e){
-    if(!e) var e = window.event; 
+    if(!e) var ew = window.event; 
     if(e.keyCode==32){
        $("#beginBtn").click();
     }
  });
 
+    
+
+    //图片上传处理
+       $("#file-1").fileinput({
+        uploadUrl: '../Ashx/PicUpload.ashx', // you must set a valid URL here else you will get an error
+        allowedFileExtensions : ['jpg', 'png','gif','jpeg'],
+        overwriteInitial: false,
+         language: 'zh', //设置语言
+        maxFileSize: 10000,
+        maxFilesNum: 10,
+        showRemove:false,
+         previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+        allowedFileTypes: ['jpg', 'png','gif','jpeg'],
+        deleteUrl:'../Ashx/PicUpload.ashx',   // String删除图片时的请求路径
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+	});
+
+    //	异步上传成功结果处理
+	$("#file-1").on("fileuploaded", function (event, data, previewId, index) {
+         //向隐藏域中添加数据
+            hiddenPic=  $("#hidSavePicPath").val();
+            if(hiddenPic.length==0){
+            $("#hidSavePicPath").val(data.response.msg);
+            }else{
+            $("#hidSavePicPath").val(hiddenPic+";"+data.response.msg);
+            }
+	})
 
 });
 
@@ -741,109 +773,14 @@ function RestitutionShowWind(OlId,imgDivId,imgOutDivId,liId,imgNearDivId,default
     divObject.appendChild(newDiv);
 }
 
-
  //上传图片的窗口恢复原状
 function RestitutionUpLoadWind(){
-        $("#aimOl").empty().html("<li id=\"defaultLi\" data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>");
-        $("#aimDiv").empty().html(" <div  id=\"defaultImg\" class=\"item active\"> <img class=\"d-block w-100 img-responsive img-rounded\" src=\"../Resource/Default.png\" alt=\"First slide\" name=\"defaultImg\" /></div>");
-        //将文件的input的清空
-        $("#chooseImage").val("");
+        //将上传图片位置清空
+        $(".form-group .close.fileinput-remove").click();
         //将隐藏域的val清空
         $("#hidSavePicPath").val("");
-        //清空用于保存上传图片的数组
-        uploadPics = new Array();
 }
 
-
-//上传图片的方法
-function img(){
- $('#chooseImage').on('change',function(){  
-            //获取文件对象
-            var files = this.files;
-            
-            for (var j = 0; j < files.length; j++) {
-                  //转成可以在本地预览的格式 
-                 var  src = window.URL.createObjectURL(files[j]); 
-                 //获取图片格式
-                  var fileFormat = files[j].name.substring(files[j].name.lastIndexOf(".")).toLowerCase();
-                // 检查是否是图片  
-                //*.jpg;*.png;*.jpeg;*.gif
-                if( !fileFormat.match(/.png|.jpg|.gif|.jpeg/) ) {  
-                    swal({ 
-                        title: "上传错误,文件格式必须为：.png/.jpg/.jpeg/.gif！",
-                        type: "error",
-                        timer:1500
-                     });
-                   $(this).val("");
-                    return false;    
-                }  
-               
-                //将图片保存在一个全局数组中
-                //uploadPics[uploadPics.length]= files[j];
-
-                AddPicture("#aimDiv","#aimOl",src,"#carouselExampleIndicators","defaultImg");
-
-                var img =  files[j];
-                 //文件类型
-                var ImgType = img.type;
-                //文件名
-                var ImgName = img.name;
-                var reader = new FileReader();
-                reader.readAsDataURL(img);
-                reader.onload = function(e){
-                      //获取文件的base64数据
-                   var postStr =reader.result;
-                   //提交数据
-                     $.post("../Ashx/UploadImgs.ashx",{postData:postStr},function(data){
-                    //向隐藏域中添加数据
-                     hiddenPic=  $("#hidSavePicPath").val();
-                     if(hiddenPic.length==0){
-                        $("#hidSavePicPath").val(data);
-                     }else{
-                        $("#hidSavePicPath").val(hiddenPic+";"+data);
-                     }
-                });
-                }
-                }
-            
-             //$('#chooseImage').val("");
-});
-}
-
-//点击上传按钮
-function uploadPicsBtnEvent(){
-//        for (var j = 0; j <   uploadPics.length      ; j++)
-//        {
-//        	 var img =  uploadPics[j];
-//                 //文件类型
-//                var imgtype = img.type;
-//                //文件名
-//                var imgname = img.name;
-//                var reader = new filereader();
-//                reader.readasdataurl(img);
-//                reader.onload = function(e){
-//                      //获取文件的base64数据
-//                   var poststr =reader.result;
-//                   //提交数据
-//                     $.post("../ashx/uploadimgs.ashx",{postdata:poststr},function(data){
-//                    //向隐藏域中添加数据
-//                     hiddenpic=  $("#hidsavepicpath").val();
-//                     if(hiddenpic.length==0){
-//                        $("#hidsavepicpath").val(data);
-//                     }else{
-//                        $("#hidsavepicpath").val(hiddenpic+";"+data);
-//                     }
-//                });
-//                }
-//        }
-
-         swal({ 
-                title: "上传成功！",
-                type: "success",
-                timer:1500
-                    });   
-
-}
 
 //动态加载图片
 //ImgDivselector 图片的最外层div  id
@@ -1402,6 +1339,8 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
+        //清空注册窗口数据
+        $("#RegistForm .form-control").val("");
         $('.modal-title.logIn').html('注册');
     }); 
     $('.error').removeClass('alert alert-danger').html('');
@@ -1444,11 +1383,24 @@ function openRegisterModal(){
 
 //验证登录
 function loginAjax() {
+    //如果已经登录，点击将退出登录
+    if(isLog==true){
+    logoff(function(){
+        isLog=false;
+        swal({ title: "退出登录成功！",
+                type: "success",
+                timer:1500
+                    });
+         $("#btnLogin").val("登录");
+        });
+    }else{
     //将表单整体序列化成一个数组提交到后台
     var postData = $("#loginForm").serializeArray();
     $.post( "../Ashx/VerifyIogin.ashx",postData, function( data ) {
             if(data == "ok"){
                 $('#loginModal').modal('hide');
+                //禁用登录按钮
+                $("#btnLogin").val("已登录,点击退出登录");
                 isLog=true;
                   swal({
                     title: "登录成功！",
@@ -1459,13 +1411,11 @@ function loginAjax() {
                  shakeModal(data); 
             }
         });
+      }
 }
 
 //验证注册
 function registerAjax(){
-    //action="Ashx/registerCount.ashx"
-    //alert('目暂时不支持注册功能');
-
     //将表单整体序列化成一个数组提交到后台
     var postData = $("#RegistForm").serializeArray();
     $.post( "../Ashx/registerCount.ashx",postData, function( data ) {
@@ -1474,6 +1424,11 @@ function registerAjax(){
                             type: "success",
                             timer:1500
                         })
+                isLog = false;
+                $("#btnLogin").val("登录");
+                //将登录名密码填好
+                $("#UserIdText").val( $("#email_register").val());
+                $("#UserPwdText").val($("#password_register").val());
                 showLoginForm();
             } else {
                  shakeModal(data); 
@@ -1491,11 +1446,11 @@ function shakeModal(data) {
     }, 400 ); 
 }
 
-
+//*********弹出框*****************
 //使用sweetalert的弹出框操作
  function check(Func) {
-            swal(
-                { title: "您确定要删除这条数据吗",
+            swal({ 
+                    title: "您确定要删除这条数据吗",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
@@ -1518,12 +1473,37 @@ function shakeModal(data) {
             )
             }
 function save(Func) {
-       swal(
-                { title: "您确定要保存吗",
+       swal( { 
+                    title: "您确定要保存吗",
                     type: "info",
                     showCancelButton: true,
                     confirmButtonColor: "#6CE26C",
                     confirmButtonText: "确定保存！",
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                       Func();
+                    }
+                    else {
+                        swal({ title: "已取消",
+                            type: "error",
+                            timer:1500
+                        })
+                    }
+                }
+            )
+    }
+
+function logoff(Func) {
+       swal( { 
+                    title: "您确定要退出登录吗",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonColor: "#6CE26C",
+                    confirmButtonText: "确定退出！",
                     cancelButtonText: "取消",
                     closeOnConfirm: false,
                     closeOnCancel: false
