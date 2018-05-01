@@ -16,7 +16,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
@@ -78,7 +78,6 @@
     <Content Include="Controls\copyright.ascx" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.html" />
-    <Content Include="jstoexecltest.html" />
     <Content Include="Resource\HomePageLogo.png" />
     <Content Include="Resource\Default.png" />
     <Content Include="Resource\homePagePic1.jpeg" />
